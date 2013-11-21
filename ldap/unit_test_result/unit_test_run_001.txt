@@ -1,0 +1,636 @@
+/usr/bin/ruby -S rspec spec/type/ldapconfig_spec.rb
+
+Puppet::Type::Ldapconfig
+  should be able to create an instance (FAILED - 1)
+  should have a configdir property (FAILED - 2)
+  should have documentation for its configdir property (FAILED - 3)
+  should have a configfile property (FAILED - 4)
+  should have documentation for its configfile property (FAILED - 5)
+  should have a concurrency property (FAILED - 6)
+  should have documentation for its concurrency property (FAILED - 7)
+  should have a connmaxpending property (FAILED - 8)
+  should have documentation for its connmaxpending property (FAILED - 9)
+  should have a connmaxpendingauth property (FAILED - 10)
+  should have documentation for its connmaxpendingauth property (FAILED - 11)
+  should have a idletimeout property (FAILED - 12)
+  should have documentation for its idletimeout property (FAILED - 13)
+  should have a indexsubstrifmaxlen property (FAILED - 14)
+  should have documentation for its indexsubstrifmaxlen property (FAILED - 15)
+  should have a indexsubstrifminlen property (FAILED - 16)
+  should have documentation for its indexsubstrifminlen property (FAILED - 17)
+  should have a indexsubstranylen property (FAILED - 18)
+  should have documentation for its indexsubstranylen property (FAILED - 19)
+  should have a indexsubstranystep property (FAILED - 20)
+  should have documentation for its indexsubstranystep property (FAILED - 21)
+  should have a indexintlen property (FAILED - 22)
+  should have documentation for its indexintlen property (FAILED - 23)
+  should have a localssf property (FAILED - 24)
+  should have documentation for its localssf property (FAILED - 25)
+  should have a sockbufmaxincoming property (FAILED - 26)
+  should have documentation for its sockbufmaxincoming property (FAILED - 27)
+  should have a sockbufmaxincomingauth property (FAILED - 28)
+  should have documentation for its sockbufmaxincomingauth property (FAILED - 29)
+  should have a threads property (FAILED - 30)
+  should have documentation for its threads property (FAILED - 31)
+  should have a toolthreads property (FAILED - 32)
+  should have documentation for its toolthreads property (FAILED - 33)
+  should have a writetimeout property (FAILED - 34)
+  should have documentation for its writetimeout property (FAILED - 35)
+  should have a gentlehup property (FAILED - 36)
+  should have documentation for its gentlehup property (FAILED - 37)
+  should have a readonly property (FAILED - 38)
+  should have documentation for its readonly property (FAILED - 39)
+  should have a reverselookup property (FAILED - 40)
+  should have documentation for its reverselookup property (FAILED - 41)
+  should have a logfile property (FAILED - 42)
+  should have documentation for its logfile property (FAILED - 43)
+  should have a argsfile property (FAILED - 44)
+  should have documentation for its argsfile property (FAILED - 45)
+  should have a pidfile property (FAILED - 46)
+  should have documentation for its pidfile property (FAILED - 47)
+  should have a tlscacertificatepath property (FAILED - 48)
+  should have documentation for its tlscacertificatepath property (FAILED - 49)
+  should have a tlscertifacicatefile property (FAILED - 50)
+  should have documentation for its tlscertifacicatefile property (FAILED - 51)
+  should have a tlscertifacicatekeyfile property (FAILED - 52)
+  should have documentation for its tlscertifacicatekeyfile property (FAILED - 53)
+  should have a configdir property (FAILED - 54)
+  should have documentation for its configdir property (FAILED - 55)
+  should have a configfile property (FAILED - 56)
+  should have documentation for its configfile property (FAILED - 57)
+  should have a attributeOptions property (FAILED - 58)
+  should have documentation for its attributeOptions property (FAILED - 59)
+  should have a saslsecprops property (FAILED - 60)
+  should have documentation for its saslsecprops property (FAILED - 61)
+  should have a tlsverifyvlient property (FAILED - 62)
+  should have documentation for its tlsverifyvlient property (FAILED - 63)
+  should have a logLevel property (FAILED - 64)
+  should have documentation for its logLevel property (FAILED - 65)
+  should have a authzregexp property (FAILED - 66)
+  should have documentation for its authzregexp property (FAILED - 67)
+  should have a allows property (FAILED - 68)
+  should have documentation for its allows property (FAILED - 69)
+  should have a disallows property (FAILED - 70)
+  should have documentation for its disallows property (FAILED - 71)
+  should have a Boolean gentlehup (FAILED - 72)
+  should have a Boolean readonly (FAILED - 73)
+  should have a Boolean reverselookup (FAILED - 74)
+  should have a ordered_list allows (FAILED - 75)
+  should have a ordered_list disallows (FAILED - 76)
+  instances
+    should delegete existence questions to its provider (FAILED - 77)
+
+Failures:
+
+  1) Puppet::Type::Ldapconfig should be able to create an instance
+     Failure/Error: described_class.new(:name => 'config0').should_not be_nil
+     Puppet::Error:
+       No set of title patterns matched the title "config0".
+     # /usr/share/ruby/vendor_ruby/puppet/resource.rb:480:in `parse_title'
+     # /usr/share/ruby/vendor_ruby/puppet/resource.rb:243:in `to_hash'
+     # /usr/share/ruby/vendor_ruby/puppet/type.rb:2197:in `initialize'
+     # ./spec/type/ldapconfig_spec.rb:18:in `new'
+     # ./spec/type/ldapconfig_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+  2) Puppet::Type::Ldapconfig should have a configdir property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  3) Puppet::Type::Ldapconfig should have documentation for its configdir property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  4) Puppet::Type::Ldapconfig should have a configfile property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  5) Puppet::Type::Ldapconfig should have documentation for its configfile property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  6) Puppet::Type::Ldapconfig should have a concurrency property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  7) Puppet::Type::Ldapconfig should have documentation for its concurrency property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  8) Puppet::Type::Ldapconfig should have a connmaxpending property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  9) Puppet::Type::Ldapconfig should have documentation for its connmaxpending property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  10) Puppet::Type::Ldapconfig should have a connmaxpendingauth property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  11) Puppet::Type::Ldapconfig should have documentation for its connmaxpendingauth property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  12) Puppet::Type::Ldapconfig should have a idletimeout property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  13) Puppet::Type::Ldapconfig should have documentation for its idletimeout property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  14) Puppet::Type::Ldapconfig should have a indexsubstrifmaxlen property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  15) Puppet::Type::Ldapconfig should have documentation for its indexsubstrifmaxlen property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  16) Puppet::Type::Ldapconfig should have a indexsubstrifminlen property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  17) Puppet::Type::Ldapconfig should have documentation for its indexsubstrifminlen property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  18) Puppet::Type::Ldapconfig should have a indexsubstranylen property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  19) Puppet::Type::Ldapconfig should have documentation for its indexsubstranylen property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  20) Puppet::Type::Ldapconfig should have a indexsubstranystep property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  21) Puppet::Type::Ldapconfig should have documentation for its indexsubstranystep property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  22) Puppet::Type::Ldapconfig should have a indexintlen property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  23) Puppet::Type::Ldapconfig should have documentation for its indexintlen property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  24) Puppet::Type::Ldapconfig should have a localssf property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  25) Puppet::Type::Ldapconfig should have documentation for its localssf property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  26) Puppet::Type::Ldapconfig should have a sockbufmaxincoming property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  27) Puppet::Type::Ldapconfig should have documentation for its sockbufmaxincoming property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  28) Puppet::Type::Ldapconfig should have a sockbufmaxincomingauth property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  29) Puppet::Type::Ldapconfig should have documentation for its sockbufmaxincomingauth property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  30) Puppet::Type::Ldapconfig should have a threads property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  31) Puppet::Type::Ldapconfig should have documentation for its threads property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  32) Puppet::Type::Ldapconfig should have a toolthreads property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  33) Puppet::Type::Ldapconfig should have documentation for its toolthreads property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  34) Puppet::Type::Ldapconfig should have a writetimeout property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  35) Puppet::Type::Ldapconfig should have documentation for its writetimeout property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  36) Puppet::Type::Ldapconfig should have a gentlehup property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  37) Puppet::Type::Ldapconfig should have documentation for its gentlehup property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  38) Puppet::Type::Ldapconfig should have a readonly property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  39) Puppet::Type::Ldapconfig should have documentation for its readonly property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  40) Puppet::Type::Ldapconfig should have a reverselookup property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  41) Puppet::Type::Ldapconfig should have documentation for its reverselookup property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  42) Puppet::Type::Ldapconfig should have a logfile property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  43) Puppet::Type::Ldapconfig should have documentation for its logfile property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  44) Puppet::Type::Ldapconfig should have a argsfile property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  45) Puppet::Type::Ldapconfig should have documentation for its argsfile property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  46) Puppet::Type::Ldapconfig should have a pidfile property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  47) Puppet::Type::Ldapconfig should have documentation for its pidfile property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  48) Puppet::Type::Ldapconfig should have a tlscacertificatepath property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  49) Puppet::Type::Ldapconfig should have documentation for its tlscacertificatepath property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  50) Puppet::Type::Ldapconfig should have a tlscertifacicatefile property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  51) Puppet::Type::Ldapconfig should have documentation for its tlscertifacicatefile property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  52) Puppet::Type::Ldapconfig should have a tlscertifacicatekeyfile property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  53) Puppet::Type::Ldapconfig should have documentation for its tlscertifacicatekeyfile property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  54) Puppet::Type::Ldapconfig should have a configdir property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  55) Puppet::Type::Ldapconfig should have documentation for its configdir property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  56) Puppet::Type::Ldapconfig should have a configfile property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  57) Puppet::Type::Ldapconfig should have documentation for its configfile property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  58) Puppet::Type::Ldapconfig should have a attributeOptions property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  59) Puppet::Type::Ldapconfig should have documentation for its attributeOptions property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  60) Puppet::Type::Ldapconfig should have a saslsecprops property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  61) Puppet::Type::Ldapconfig should have documentation for its saslsecprops property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  62) Puppet::Type::Ldapconfig should have a tlsverifyvlient property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  63) Puppet::Type::Ldapconfig should have documentation for its tlsverifyvlient property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  64) Puppet::Type::Ldapconfig should have a logLevel property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  65) Puppet::Type::Ldapconfig should have documentation for its logLevel property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  66) Puppet::Type::Ldapconfig should have a authzregexp property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  67) Puppet::Type::Ldapconfig should have documentation for its authzregexp property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  68) Puppet::Type::Ldapconfig should have a allows property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  69) Puppet::Type::Ldapconfig should have documentation for its allows property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  70) Puppet::Type::Ldapconfig should have a disallows property
+     Failure/Error: described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+  71) Puppet::Type::Ldapconfig should have documentation for its disallows property
+     Failure/Error: described_class.attrclass(property).doc.should be_instance_of(String)
+     NoMethodError:
+       undefined method `doc' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  72) Puppet::Type::Ldapconfig should have a Boolean gentlehup
+     Failure/Error: described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::Boolean)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:86:in `block (3 levels) in <top (required)>'
+
+  73) Puppet::Type::Ldapconfig should have a Boolean readonly
+     Failure/Error: described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::Boolean)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:86:in `block (3 levels) in <top (required)>'
+
+  74) Puppet::Type::Ldapconfig should have a Boolean reverselookup
+     Failure/Error: described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::Boolean)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:86:in `block (3 levels) in <top (required)>'
+
+  75) Puppet::Type::Ldapconfig should have a ordered_list allows
+     Failure/Error: described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::OrderedList)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:92:in `block (3 levels) in <top (required)>'
+
+  76) Puppet::Type::Ldapconfig should have a ordered_list disallows
+     Failure/Error: described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::OrderedList)
+     NoMethodError:
+       undefined method `ancestors' for nil:NilClass
+     # ./spec/type/ldapconfig_spec.rb:92:in `block (3 levels) in <top (required)>'
+
+  77) Puppet::Type::Ldapconfig instances should delegete existence questions to its provider
+     Failure/Error: instance = described_class.new(:name => 'foo', :provider => @provider)
+     Puppet::Error:
+       No set of title patterns matched the title "foo".
+     # /usr/share/ruby/vendor_ruby/puppet/resource.rb:480:in `parse_title'
+     # /usr/share/ruby/vendor_ruby/puppet/resource.rb:243:in `to_hash'
+     # /usr/share/ruby/vendor_ruby/puppet/type.rb:2197:in `initialize'
+     # ./spec/type/ldapconfig_spec.rb:37:in `new'
+     # ./spec/type/ldapconfig_spec.rb:37:in `block (3 levels) in <top (required)>'
+
+Finished in 0.30037 seconds
+77 examples, 77 failures
+
+Failed examples:
+
+rspec ./spec/type/ldapconfig_spec.rb:17 # Puppet::Type::Ldapconfig should be able to create an instance
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a configdir property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its configdir property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a configfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its configfile property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a concurrency property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its concurrency property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a connmaxpending property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its connmaxpending property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a connmaxpendingauth property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its connmaxpendingauth property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a idletimeout property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its idletimeout property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a indexsubstrifmaxlen property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its indexsubstrifmaxlen property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a indexsubstrifminlen property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its indexsubstrifminlen property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a indexsubstranylen property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its indexsubstranylen property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a indexsubstranystep property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its indexsubstranystep property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a indexintlen property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its indexintlen property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a localssf property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its localssf property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a sockbufmaxincoming property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its sockbufmaxincoming property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a sockbufmaxincomingauth property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its sockbufmaxincomingauth property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a threads property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its threads property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a toolthreads property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its toolthreads property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a writetimeout property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its writetimeout property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a gentlehup property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its gentlehup property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a readonly property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its readonly property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a reverselookup property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its reverselookup property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a logfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its logfile property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a argsfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its argsfile property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a pidfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its pidfile property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a tlscacertificatepath property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its tlscacertificatepath property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a tlscertifacicatefile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its tlscertifacicatefile property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a tlscertifacicatekeyfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its tlscertifacicatekeyfile property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a configdir property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its configdir property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a configfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its configfile property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a attributeOptions property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its attributeOptions property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a saslsecprops property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its saslsecprops property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a tlsverifyvlient property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its tlsverifyvlient property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a logLevel property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its logLevel property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a authzregexp property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its authzregexp property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a allows property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its allows property
+rspec ./spec/type/ldapconfig_spec.rb:70 # Puppet::Type::Ldapconfig should have a disallows property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its disallows property
+rspec ./spec/type/ldapconfig_spec.rb:85 # Puppet::Type::Ldapconfig should have a Boolean gentlehup
+rspec ./spec/type/ldapconfig_spec.rb:85 # Puppet::Type::Ldapconfig should have a Boolean readonly
+rspec ./spec/type/ldapconfig_spec.rb:85 # Puppet::Type::Ldapconfig should have a Boolean reverselookup
+rspec ./spec/type/ldapconfig_spec.rb:91 # Puppet::Type::Ldapconfig should have a ordered_list allows
+rspec ./spec/type/ldapconfig_spec.rb:91 # Puppet::Type::Ldapconfig should have a ordered_list disallows
+rspec ./spec/type/ldapconfig_spec.rb:33 # Puppet::Type::Ldapconfig instances should delegete existence questions to its provider
