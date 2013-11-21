@@ -13,9 +13,16 @@ Different steps will be tagged, so one can follow the steps I did in my learning
 
 Tags and there descriptions
 
-tag <initial_setup> : module tree including my .spec file.
-  - puppet module generated, adding the spec and lib subtree
+tag v0.0  - initial setup and base rspec file properties only: 
+  
+  - puppet module generated
+  - moved rspec_helper out of the way 
+  - added lib/puppet/{type|provider}
+  - added an .rspec file
   - rspec-puppet-init executed form the module base dir
+  - edited spec/type/ldapconfig_spec.rb
+  - created lib/puppet/type/ldapconfig.rb (empty type class)
+  - executed rspec and captured result in unit_test_result/unit_test_run_001.txt
 
 tag <rspec_ldapconfig> : Initial rspec file
   - based on the puppet internal user_rspec.rb
