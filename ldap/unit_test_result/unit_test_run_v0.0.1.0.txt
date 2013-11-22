@@ -1,0 +1,406 @@
+/usr/bin/ruby -S rspec spec/type/ldapconfig_spec.rb
+
+Puppet::Type::Ldapconfig
+  should be able to create an instance (FAILED - 1)
+  should have a concurrency property
+  should have documentation for its concurrency property (FAILED - 2)
+  should have a connmaxpending property
+  should have documentation for its connmaxpending property (FAILED - 3)
+  should have a connmaxpendingauth property
+  should have documentation for its connmaxpendingauth property (FAILED - 4)
+  should have a idletimeout property
+  should have documentation for its idletimeout property (FAILED - 5)
+  should have a indexsubstrifmaxlen property
+  should have documentation for its indexsubstrifmaxlen property (FAILED - 6)
+  should have a indexsubstrifminlen property
+  should have documentation for its indexsubstrifminlen property (FAILED - 7)
+  should have a indexsubstranylen property
+  should have documentation for its indexsubstranylen property (FAILED - 8)
+  should have a indexsubstranystep property
+  should have documentation for its indexsubstranystep property (FAILED - 9)
+  should have a indexintlen property
+  should have documentation for its indexintlen property (FAILED - 10)
+  should have a localssf property
+  should have documentation for its localssf property (FAILED - 11)
+  should have a sockbufmaxincoming property
+  should have documentation for its sockbufmaxincoming property (FAILED - 12)
+  should have a sockbufmaxincomingauth property
+  should have documentation for its sockbufmaxincomingauth property (FAILED - 13)
+  should have a threads property
+  should have documentation for its threads property (FAILED - 14)
+  should have a toolthreads property
+  should have documentation for its toolthreads property (FAILED - 15)
+  should have a writetimeout property
+  should have documentation for its writetimeout property (FAILED - 16)
+  should have a gentlehup property
+  should have documentation for its gentlehup property (FAILED - 17)
+  should have a readonly property
+  should have documentation for its readonly property (FAILED - 18)
+  should have a reverselookup property
+  should have documentation for its reverselookup property (FAILED - 19)
+  should have a logfile property
+  should have documentation for its logfile property (FAILED - 20)
+  should have a argsfile property
+  should have documentation for its argsfile property (FAILED - 21)
+  should have a pidfile property
+  should have documentation for its pidfile property (FAILED - 22)
+  should have a tlscacertificatepath property
+  should have documentation for its tlscacertificatepath property (FAILED - 23)
+  should have a tlscertifacicatefile property
+  should have documentation for its tlscertifacicatefile property (FAILED - 24)
+  should have a tlscertifacicatekeyfile property
+  should have documentation for its tlscertifacicatekeyfile property (FAILED - 25)
+  should have a configdir property
+  should have documentation for its configdir property (FAILED - 26)
+  should have a configfile property
+  should have documentation for its configfile property (FAILED - 27)
+  should have a attributeoptions property
+  should have documentation for its attributeoptions property (FAILED - 28)
+  should have a saslsecprops property
+  should have documentation for its saslsecprops property (FAILED - 29)
+  should have a tlsverifyvlient property
+  should have documentation for its tlsverifyvlient property (FAILED - 30)
+  should have a loglevel property
+  should have documentation for its loglevel property (FAILED - 31)
+  should have a authzregexp property
+  should have documentation for its authzregexp property (FAILED - 32)
+  should have a allows property
+  should have documentation for its allows property (FAILED - 33)
+  should have a disallows property
+  should have documentation for its disallows property (FAILED - 34)
+  should have a Boolean gentlehup (FAILED - 35)
+  should have a Boolean readonly (FAILED - 36)
+  should have a Boolean reverselookup (FAILED - 37)
+  should have a ordered_list allows (FAILED - 38)
+  should have a ordered_list disallows (FAILED - 39)
+  instances
+    should delegete existence questions to its provider (FAILED - 40)
+
+Failures:
+
+  1) Puppet::Type::Ldapconfig should be able to create an instance
+     Failure/Error: described_class.new(:name => 'config0').should_not be_nil
+     Puppet::Error:
+       No set of title patterns matched the title "config0".
+     # /usr/share/ruby/vendor_ruby/puppet/resource.rb:480:in `parse_title'
+     # /usr/share/ruby/vendor_ruby/puppet/resource.rb:243:in `to_hash'
+     # /usr/share/ruby/vendor_ruby/puppet/type.rb:2197:in `initialize'
+     # ./spec/type/ldapconfig_spec.rb:18:in `new'
+     # ./spec/type/ldapconfig_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+  2) Puppet::Type::Ldapconfig should have documentation for its concurrency property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  3) Puppet::Type::Ldapconfig should have documentation for its connmaxpending property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  4) Puppet::Type::Ldapconfig should have documentation for its connmaxpendingauth property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  5) Puppet::Type::Ldapconfig should have documentation for its idletimeout property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  6) Puppet::Type::Ldapconfig should have documentation for its indexsubstrifmaxlen property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  7) Puppet::Type::Ldapconfig should have documentation for its indexsubstrifminlen property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  8) Puppet::Type::Ldapconfig should have documentation for its indexsubstranylen property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  9) Puppet::Type::Ldapconfig should have documentation for its indexsubstranystep property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  10) Puppet::Type::Ldapconfig should have documentation for its indexintlen property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  11) Puppet::Type::Ldapconfig should have documentation for its localssf property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  12) Puppet::Type::Ldapconfig should have documentation for its sockbufmaxincoming property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  13) Puppet::Type::Ldapconfig should have documentation for its sockbufmaxincomingauth property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  14) Puppet::Type::Ldapconfig should have documentation for its threads property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  15) Puppet::Type::Ldapconfig should have documentation for its toolthreads property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  16) Puppet::Type::Ldapconfig should have documentation for its writetimeout property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  17) Puppet::Type::Ldapconfig should have documentation for its gentlehup property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  18) Puppet::Type::Ldapconfig should have documentation for its readonly property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  19) Puppet::Type::Ldapconfig should have documentation for its reverselookup property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  20) Puppet::Type::Ldapconfig should have documentation for its logfile property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  21) Puppet::Type::Ldapconfig should have documentation for its argsfile property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  22) Puppet::Type::Ldapconfig should have documentation for its pidfile property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  23) Puppet::Type::Ldapconfig should have documentation for its tlscacertificatepath property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  24) Puppet::Type::Ldapconfig should have documentation for its tlscertifacicatefile property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  25) Puppet::Type::Ldapconfig should have documentation for its tlscertifacicatekeyfile property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  26) Puppet::Type::Ldapconfig should have documentation for its configdir property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  27) Puppet::Type::Ldapconfig should have documentation for its configfile property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  28) Puppet::Type::Ldapconfig should have documentation for its attributeoptions property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  29) Puppet::Type::Ldapconfig should have documentation for its saslsecprops property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  30) Puppet::Type::Ldapconfig should have documentation for its tlsverifyvlient property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  31) Puppet::Type::Ldapconfig should have documentation for its loglevel property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  32) Puppet::Type::Ldapconfig should have documentation for its authzregexp property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  33) Puppet::Type::Ldapconfig should have documentation for its allows property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  34) Puppet::Type::Ldapconfig should have documentation for its disallows property
+     Failure/Error: described_class.attrclass(property).desc.should be_instance_of(String)
+     ArgumentError:
+       wrong number of arguments (0 for 1)
+     # /usr/share/ruby/vendor_ruby/puppet/parameter.rb:152:in `desc'
+     # ./spec/type/ldapconfig_spec.rb:77:in `block (3 levels) in <top (required)>'
+
+  35) Puppet::Type::Ldapconfig should have a Boolean gentlehup
+     Failure/Error: described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::Boolean)
+     NameError:
+       uninitialized constant Puppet::Property::Boolean
+     # ./spec/type/ldapconfig_spec.rb:86:in `block (3 levels) in <top (required)>'
+
+  36) Puppet::Type::Ldapconfig should have a Boolean readonly
+     Failure/Error: described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::Boolean)
+     NameError:
+       uninitialized constant Puppet::Property::Boolean
+     # ./spec/type/ldapconfig_spec.rb:86:in `block (3 levels) in <top (required)>'
+
+  37) Puppet::Type::Ldapconfig should have a Boolean reverselookup
+     Failure/Error: described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::Boolean)
+     NameError:
+       uninitialized constant Puppet::Property::Boolean
+     # ./spec/type/ldapconfig_spec.rb:86:in `block (3 levels) in <top (required)>'
+
+  38) Puppet::Type::Ldapconfig should have a ordered_list allows
+     Failure/Error: described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::OrderedList)
+     NameError:
+       uninitialized constant Puppet::Property::OrderedList
+     # ./spec/type/ldapconfig_spec.rb:92:in `block (3 levels) in <top (required)>'
+
+  39) Puppet::Type::Ldapconfig should have a ordered_list disallows
+     Failure/Error: described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::OrderedList)
+     NameError:
+       uninitialized constant Puppet::Property::OrderedList
+     # ./spec/type/ldapconfig_spec.rb:92:in `block (3 levels) in <top (required)>'
+
+  40) Puppet::Type::Ldapconfig instances should delegete existence questions to its provider
+     Failure/Error: instance = described_class.new(:name => 'foo', :provider => @provider)
+     Puppet::Error:
+       No set of title patterns matched the title "foo".
+     # /usr/share/ruby/vendor_ruby/puppet/resource.rb:480:in `parse_title'
+     # /usr/share/ruby/vendor_ruby/puppet/resource.rb:243:in `to_hash'
+     # /usr/share/ruby/vendor_ruby/puppet/type.rb:2197:in `initialize'
+     # ./spec/type/ldapconfig_spec.rb:37:in `new'
+     # ./spec/type/ldapconfig_spec.rb:37:in `block (3 levels) in <top (required)>'
+
+Finished in 0.3038 seconds
+73 examples, 40 failures
+
+Failed examples:
+
+rspec ./spec/type/ldapconfig_spec.rb:17 # Puppet::Type::Ldapconfig should be able to create an instance
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its concurrency property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its connmaxpending property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its connmaxpendingauth property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its idletimeout property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its indexsubstrifmaxlen property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its indexsubstrifminlen property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its indexsubstranylen property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its indexsubstranystep property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its indexintlen property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its localssf property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its sockbufmaxincoming property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its sockbufmaxincomingauth property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its threads property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its toolthreads property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its writetimeout property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its gentlehup property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its readonly property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its reverselookup property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its logfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its argsfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its pidfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its tlscacertificatepath property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its tlscertifacicatefile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its tlscertifacicatekeyfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its configdir property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its configfile property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its attributeoptions property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its saslsecprops property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its tlsverifyvlient property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its loglevel property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its authzregexp property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its allows property
+rspec ./spec/type/ldapconfig_spec.rb:76 # Puppet::Type::Ldapconfig should have documentation for its disallows property
+rspec ./spec/type/ldapconfig_spec.rb:85 # Puppet::Type::Ldapconfig should have a Boolean gentlehup
+rspec ./spec/type/ldapconfig_spec.rb:85 # Puppet::Type::Ldapconfig should have a Boolean readonly
+rspec ./spec/type/ldapconfig_spec.rb:85 # Puppet::Type::Ldapconfig should have a Boolean reverselookup
+rspec ./spec/type/ldapconfig_spec.rb:91 # Puppet::Type::Ldapconfig should have a ordered_list allows
+rspec ./spec/type/ldapconfig_spec.rb:91 # Puppet::Type::Ldapconfig should have a ordered_list disallows
+rspec ./spec/type/ldapconfig_spec.rb:33 # Puppet::Type::Ldapconfig instances should delegete existence questions to its provider
