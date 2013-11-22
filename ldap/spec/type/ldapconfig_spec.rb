@@ -47,8 +47,8 @@ describe Puppet::Type.type(:ldapconfig) do
   # currently : boolean ; ensure ; keyvalue ; list ; orderdlist ....
   # see also /usr/share/ruby/vendor_ruby/puppet/property.rb
 
-  string_properties = [ :attributeOptions, :saslsecprops, :tlsverifyvlient, :logLevel, :authzregexp ]
-  int_properties  =   [ :configdir, :configfile, :concurrency, :connmaxpending,
+  string_properties = [ :attributeoptions, :saslsecprops, :tlsverifyvlient, :loglevel, :authzregexp ]
+  int_properties  =   [ :concurrency, :connmaxpending,
                         :connmaxpendingauth, :idletimeout, :indexsubstrifmaxlen, :indexsubstrifminlen,
                         :indexsubstranylen, :indexsubstranystep, :indexintlen, :localssf, :sockbufmaxincoming,
                         :sockbufmaxincomingauth, :threads, :toolthreads, :writetimeout ]
@@ -74,7 +74,7 @@ describe Puppet::Type.type(:ldapconfig) do
     # test if a doc string is defined inside the property instance
     #
     it "should have documentation for its #{property} property" do
-      described_class.attrclass(property).doc.should be_instance_of(String)
+      described_class.attrclass(property).desc.should be_instance_of(String)
     end
   end
 
