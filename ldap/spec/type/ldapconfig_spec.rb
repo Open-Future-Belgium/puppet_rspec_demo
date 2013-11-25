@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe Puppet::Type.type(:ldapconfig) do
   before :each do
@@ -47,13 +48,13 @@ describe Puppet::Type.type(:ldapconfig) do
   # currently : boolean ; ensure ; keyvalue ; list ; orderdlist ....
   # see also /usr/share/ruby/vendor_ruby/puppet/property.rb
 
-  string_properties = [ :attributeoptions, :saslsecprops, :tlsverifyvlient, :loglevel, :authzregexp ]
+  string_properties = [ :attributeoptions, :saslsecprops, :tlsverifyclient, :loglevel, :authzregexp ]
   int_properties  =   [ :concurrency, :connmaxpending,
                         :connmaxpendingauth, :idletimeout, :indexsubstrifmaxlen, :indexsubstrifminlen,
                         :indexsubstranylen, :indexsubstranystep, :indexintlen, :localssf, :sockbufmaxincoming,
                         :sockbufmaxincomingauth, :threads, :toolthreads, :writetimeout ]
-  path_properties =   [ :logfile, :argsfile, :pidfile, :tlscacertificatepath, :tlscertifacicatefile,
-                        :tlscertifacicatekeyfile, :configdir, :configfile ]
+  path_properties =   [ :logfile, :argsfile, :pidfile, :tlscacertificatepath, :tlscertificatefile,
+                        :tlscertificatekeyfile, :configdir, :configfile ]
   bool_properties =   [ :gentlehup, :readonly, :reverselookup ]
   olist_properties  = [ :allows, :disallows ]
   list_properties   = []
@@ -74,36 +75,35 @@ describe Puppet::Type.type(:ldapconfig) do
     # test if a doc string is defined inside the property instance
     #
     it "should have documentation for its #{property} property" do
-      described_class.attrclass(property).desc.should be_instance_of(String)
+      described_class.attrclass(property).doc.strip.should_not == ""
     end
   end
-
   #
   # Checking for  sepcific Puppet::Properties types
   #
   bool_properties.each do | property |
     it "should have a Boolean #{property}" do
-      described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::Boolean)
+      described_class.attrclass(property).ancestors.should be_include(Puppet::Property::Boolean)
     end
   end
 
   olist_properties.each do | property |
     it "should have a ordered_list #{property}" do
-      described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::OrderedList)
+      described_class.attrclass(property).ancestors.should be_include(Puppet::Property::OrderedList)
     end
   end
 
-   list_properties.each do | property |
-     it "should have a list #{property}" do
-       described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::List)
-     end
-   end
+  list_properties.each do | property |
+    it "should have a list #{property}" do
+      described_class.attrclass(property).ancestors.should be_include(Puppet::Property::List)
+    end
+  end
 
-   key_properties.each do | property |
-     it "should have a key vaklues #{property}" do
-       described_class.attrclass(property).ancestors.shoudl be_include(Puppet::Property::KeyValue)
-     end
-   end
+  key_properties.each do | property |
+    it "should have a key vaklues #{property}" do
+      described_class.attrclass(property).ancestors.should be_include(Puppet::Property::KeyValue)
+    end
+  end
 
    # Type specific common tests that are performed depending on which property type
    # like list, ordered list, keyvalues

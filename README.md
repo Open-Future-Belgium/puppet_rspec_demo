@@ -48,7 +48,27 @@ subtag - v.0.0.1.0
     gives an parse error.
     - logLevel and attributeOptions -> capital in both rspec and type.rb.
       this must be all lowercase
+Subtag - v0.0.1.1
+  - still 7 failures in the rspec.
+  - Adding the puppet data structures to the appropriate properties
+    - require 'puppet/parameter/boolean'
+    - require 'puppet/property/ordered_list'
+    - We have boolean, and ordered_lists (see the puppetcode @ /usr/share/ruby/vendor_ruby/puppet/property/*.rb)  No docs found to use thes.
+    -  newproperty(:readonly, :boolean => true, :parent => Puppet::Property::Boolean)
+    - newproperty(:allows, :parent => Puppet::Property::OrderedList)
+    -  how to use this in the code, will become clear in the nexr steps 
+  - errate in spec -> typo in should (again)
 
+  - it seems we have conflicting rspec here : 
+    - should have a gentlehup property (FAILED - 2) 
+    - should have a ordered_list allows
+      - both should pass !! 
 
+    - TODO --> short tutorial how to use pry for debugging purposes. http://pryrepl.org/
+    - Result of this run : 2 fails:
+      - should be able to create an instance (FAILED - 1)
+      - should delegete existence questions to its provider (FAILED - 2)
+
+ 
 and_so_on
   
