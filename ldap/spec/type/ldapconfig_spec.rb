@@ -17,7 +17,6 @@ describe Puppet::Type.type(:ldapconfig) do
 
   it "should be able to create an instance" do
     described_class.new(:name => 'config0').should_not be_nil
-    binding.pry
   end
 
   # if some features are defined,  this can be tested as follow :
@@ -34,9 +33,9 @@ describe Puppet::Type.type(:ldapconfig) do
   describe "instances" do
     it "should delegete existence questions to its provider" do
       # create a dummy provider
-      @provider = @provider_class.new(:name => 'foo', :ensure => :absent)
+      @provider = @provider_class.new(:name => 'config', :ensure => :absent)
       # create a dummy instance, and assign above provider to it
-      instance = described_class.new(:name => 'foo', :provider => @provider)
+      instance = described_class.new(:name => 'config', :provider => @provider)
 
       # set the variable the provider should return
       @provider.set(:ensure => :present)

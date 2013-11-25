@@ -24,6 +24,39 @@ Puppet::Type.newtype(:ldapconfig) do
   # for tag v.0.0.1, thishas no imapct, but we will keep the code
   # grouped when doing specific adjustments
 
+  newproperty(:ensure, :parent => Puppet::Property::Ensure) do
+    desc "The basic state that the object shoul be in"
+
+    # if the ensure property is 'present', then this will trigger
+    # the event :config_created.  The logic is written inn  the provider code
+    # because implentation will differ from distro/OS/Platform 
+    newvalue(:present, :event => :config_created) do
+      provider.create
+    end
+    newvalue(:absent, :event => :config_removed) do
+      provider.delete
+    end
+
+    # here we define the default value depending if the reaource is managed or not.
+    
+    defaultto do
+      if @resource.managed?
+        :present
+      else
+        nil
+      end
+    end
+
+    def retrieve
+      if provider.exists?
+        :present
+      else
+        :absent
+      end
+    end
+
+  end
+
   #
   # string_properties
   #
@@ -167,4 +200,13 @@ Puppet::Type.newtype(:ldapconfig) do
     defaultto 'config0'
   end
 
+
+  #
+  # Global functions used in the Type definition
+  # Code that is needed to help validating the properties and parameters
+  #
+
+  def exists?
+    provider.exists?
+  end
 end

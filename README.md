@@ -81,7 +81,20 @@ subtag v0.0.1.2
       the same server, each having #ports and #configdirs.
   -docs about namevar etc in the booklet 'Puppet type and Providers"
 
+subtag v0.0.1.3
 
+  - Make the last failure pass : should delegete existence questions to its provider (FAILED - 1)
+  - In this test, we introduce another parameter :ensure.
+  - For a start we check that the resource should be present 
+  - ensure property --> special case.  Also use a parent class (ensure)
+  - new feature -> event : :config_created, we will check if there is 
+    a file cn=config.ldif in the /etc/openldap/<config dir>
+  - it is the provider code who will handle this, but that piece of
+    code is not written yet, therfore we use the stubbing feature from rspec
+  - for his to work, we had to add some calls to the providercode.  Have to
+    look this up in the docs/code what this is all about.  (for now on,
+    just copy/paste and hoping it works)
+  - end it works, but we should really explain what we have done.
  
 and_so_on
   
