@@ -157,4 +157,14 @@ Puppet::Type.newtype(:ldapconfig) do
   #
   # key_properties
   #
+
+  #
+  # Parameter entries are grouped here
+  #
+
+  newparam( :name , :namevar => true) do
+    desc "The ldap config name. should always be config, or config followed wit a number"
+    defaultto 'config0'
+  end
+
 end

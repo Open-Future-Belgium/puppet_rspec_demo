@@ -48,7 +48,9 @@ subtag - v.0.0.1.0
     gives an parse error.
     - logLevel and attributeOptions -> capital in both rspec and type.rb.
       this must be all lowercase
+
 Subtag - v0.0.1.1
+
   - still 7 failures in the rspec.
   - Adding the puppet data structures to the appropriate properties
     - require 'puppet/parameter/boolean'
@@ -62,12 +64,23 @@ Subtag - v0.0.1.1
   - it seems we have conflicting rspec here : 
     - should have a gentlehup property (FAILED - 2) 
     - should have a ordered_list allows
-      - both should pass !! 
+      - both should pass !!
 
     - TODO --> short tutorial how to use pry for debugging purposes. http://pryrepl.org/
     - Result of this run : 2 fails:
       - should be able to create an instance (FAILED - 1)
       - should delegete existence questions to its provider (FAILED - 2)
+
+subtag v0.0.1.2
+
+  - pass the 'should be able to create an instance (FAILED - 1)' test.
+    - every type should have a name/namevar.  
+    - in this case, we use a parameter, and make it also the namevar)
+    - normaly, only one configuration wil be used on an ldap server,
+      but i keep the option open to run multiple ldap instances on
+      the same server, each having #ports and #configdirs.
+  -docs about namevar etc in the booklet 'Puppet type and Providers"
+
 
  
 and_so_on

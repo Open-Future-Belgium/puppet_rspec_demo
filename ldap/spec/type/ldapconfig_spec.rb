@@ -17,6 +17,7 @@ describe Puppet::Type.type(:ldapconfig) do
 
   it "should be able to create an instance" do
     described_class.new(:name => 'config0').should_not be_nil
+    binding.pry
   end
 
   # if some features are defined,  this can be tested as follow :
@@ -104,7 +105,6 @@ describe Puppet::Type.type(:ldapconfig) do
       described_class.attrclass(property).ancestors.should be_include(Puppet::Property::KeyValue)
     end
   end
-
    # Type specific common tests that are performed depending on which property type
    # like list, ordered list, keyvalues
 end
