@@ -96,6 +96,7 @@ describe Puppet::Type.type(:ldapconfig) do
       it "should raise error with non-number string for property #{property}" do
         expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
       end
+      binding.pry
     end
   end
 

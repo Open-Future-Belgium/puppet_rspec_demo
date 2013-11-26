@@ -29,7 +29,7 @@ Puppet::Type.newtype(:ldapconfig) do
 
     # if the ensure property is 'present', then this will trigger
     # the event :config_created.  The logic is written inn  the provider code
-    # because implentation will differ from distro/OS/Platform 
+    # because implentation will differ from distro/OS/Platform
     newvalue(:present, :event => :config_created) do
       provider.create
     end
@@ -38,7 +38,7 @@ Puppet::Type.newtype(:ldapconfig) do
     end
 
     # here we define the default value depending if the reaource is managed or not.
-    
+
     defaultto do
       if @resource.managed?
         :present
@@ -83,48 +83,125 @@ Puppet::Type.newtype(:ldapconfig) do
 
   newproperty(:concurrency) do
     desc "Specify  a  desired  level  of  concurrency."
+    # if 0, this attirbute will not be set
+    defaultto 0
+    munge do |value|
+      if value.is_a?(String) and value =~ /^[-0-9]+$/
+        Integer(value)
+      else
+        value
+      end
+    end
   end
   newproperty(:connmaxpending) do
     desc "Specify  the  maximum  number  of pending requests for an anonymous session."
+    defaultto 100
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:connmaxpendingauth) do
     desc "Specify the maximum number of pending requests for an authenticated session."
+    defaultto 1000
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:idletimeout) do
     desc "Specify the number of seconds to wait before forcibly closing an idle client connection."
+    # A setting of 0 disables this feature
+    defaultto 0
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:indexsubstrifmaxlen) do
     desc "Specify  the  maximum  length  for  subinitial  and  subfinal  indices."
+    defaultto 4
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:indexsubstrifminlen) do
     desc "Specify  the  minimum length for subinitial and subfinal indices."
+    defaultto 2
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:indexsubstranylen) do
     desc "Specify the length used for subany indices."
+    defaultto 4
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:indexsubstranystep) do
     desc "Specify the steps used in subany index lookups."
+    defaultto 2
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:indexintlen) do
     desc "Specify  the  key  length for ordered integer indices."
+    defaultto 4
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:localssf) do
     desc "Specifies  the  Security  Strength  Factor  (SSF) to be given local LDAP sessions"
+    defaultto 71
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:sockbufmaxincoming) do
     desc "Specify the maximum incoming LDAP PDU size for anonymous sessions"
+    defaultto 262143
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:sockbufmaxincomingauth) do
     desc "Specify the maximum incoming LDAP PDU size for authenticated sessions"
+    defaultto 4194303
+
+    munge do |value|
+      Integer(value)
+    end
+
   end
   newproperty(:threads) do
     desc "Specify the maximum size of the primary thread pool."
+    defaultto 16
+
+    validate do |value|
+      if Integer(value) < 2
+        raise ArgumentError, "Value of property \"threads\" must be equal or greater than 2"
+      end
+    end
+
+    munge do |value|
+      Integer(value)
+    end
+
   end
   newproperty(:toolthreads) do
     desc "Specify the maximum number of threads to use in tool mode."
+    defaultto 1
+    munge do |value|
+      Integer(value)
+    end
   end
   newproperty(:writetimeout) do
     desc "Specify the number of seconds to wait before forcibly closing a connection with an outstanding write."
+    # a setting of '0' disables this function
+    defaultto 0
+    munge do |value|
+      Integer(value)
+    end
   end
 
   #
