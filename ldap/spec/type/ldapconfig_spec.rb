@@ -78,6 +78,27 @@ describe Puppet::Type.type(:ldapconfig) do
       described_class.attrclass(property).doc.strip.should_not == ""
     end
   end
+
+  #
+  # Checking the int_properties, they return an integer value, even when a decima string is provided
+  #
+  describe "testing the integer type properties" do
+    int_properties.each do | property|
+      it "should return integer for default property #{property}" do
+        described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+      end
+      it "should return integer whith integer for property #{property}" do
+        described_class.new(:name => 'config0', property => 10)[property].should == 10
+      end
+      it "should return integer whith number string for property #{property}" do
+        described_class.new(:name => 'config0', property => "10")[property].should == 10
+      end
+      it "should raise error with non-number string for property #{property}" do
+        expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+      end
+    end
+  end
+
   #
   # Checking for  sepcific Puppet::Properties types
   #

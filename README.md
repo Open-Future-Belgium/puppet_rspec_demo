@@ -95,6 +95,42 @@ subtag v0.0.1.3
     look this up in the docs/code what this is all about.  (for now on,
     just copy/paste and hoping it works)
   - end it works, but we should really explain what we have done.
+
+tag v0.0.2.0
+
+  - adding more tests to the rspec files :
+    - form the ldap man page, adding defaults tot the different properties.
+      - int_properties
+        - test that default values are all integer
+        - test that all int_properties return an integer value
+        - test that all int_properties fails if provided with a string
+        - test that all int-properties succeed when provided an value as string
+  - One test pass, the one assigning an integer, because no checks are done yet (no code yet)
+
+tag v0.0.2.1
+
+  - Adding th code to make the tests pass :
+    - adding the default values
+    - let it fail when non integer is given
+    - convert number strings to integer
+
+tag v0.0.2.2
+
+      - boolean properties
+        - test that all booleans return  true/false
+        - test that all booleans raise an error if not
+
+tag v0.0.2.4
+
+      - path-properties
+        - should all be absolete paths, else raise error
+      - string properties
+        - tests depends on the property, is it requires,  restricted value range
+      - olist-properties
+        - check for allowed values
+        - special check in this case are needed
+
+
  
 and_so_on
   

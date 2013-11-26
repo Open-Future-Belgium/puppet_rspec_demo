@@ -1,0 +1,431 @@
+/usr/bin/ruby -S rspec spec/type/ldapconfig_spec.rb
+
+Puppet::Type::Ldapconfig
+  should be able to create an instance
+  should have a concurrency property
+  should have documentation for its concurrency property
+  should have a connmaxpending property
+  should have documentation for its connmaxpending property
+  should have a connmaxpendingauth property
+  should have documentation for its connmaxpendingauth property
+  should have a idletimeout property
+  should have documentation for its idletimeout property
+  should have a indexsubstrifmaxlen property
+  should have documentation for its indexsubstrifmaxlen property
+  should have a indexsubstrifminlen property
+  should have documentation for its indexsubstrifminlen property
+  should have a indexsubstranylen property
+  should have documentation for its indexsubstranylen property
+  should have a indexsubstranystep property
+  should have documentation for its indexsubstranystep property
+  should have a indexintlen property
+  should have documentation for its indexintlen property
+  should have a localssf property
+  should have documentation for its localssf property
+  should have a sockbufmaxincoming property
+  should have documentation for its sockbufmaxincoming property
+  should have a sockbufmaxincomingauth property
+  should have documentation for its sockbufmaxincomingauth property
+  should have a threads property
+  should have documentation for its threads property
+  should have a toolthreads property
+  should have documentation for its toolthreads property
+  should have a writetimeout property
+  should have documentation for its writetimeout property
+  should have a gentlehup property
+  should have documentation for its gentlehup property
+  should have a readonly property
+  should have documentation for its readonly property
+  should have a reverselookup property
+  should have documentation for its reverselookup property
+  should have a logfile property
+  should have documentation for its logfile property
+  should have a argsfile property
+  should have documentation for its argsfile property
+  should have a pidfile property
+  should have documentation for its pidfile property
+  should have a tlscacertificatepath property
+  should have documentation for its tlscacertificatepath property
+  should have a tlscertificatefile property
+  should have documentation for its tlscertificatefile property
+  should have a tlscertificatekeyfile property
+  should have documentation for its tlscertificatekeyfile property
+  should have a configdir property
+  should have documentation for its configdir property
+  should have a configfile property
+  should have documentation for its configfile property
+  should have a attributeoptions property
+  should have documentation for its attributeoptions property
+  should have a saslsecprops property
+  should have documentation for its saslsecprops property
+  should have a tlsverifyclient property
+  should have documentation for its tlsverifyclient property
+  should have a loglevel property
+  should have documentation for its loglevel property
+  should have a authzregexp property
+  should have documentation for its authzregexp property
+  should have a allows property
+  should have documentation for its allows property
+  should have a disallows property
+  should have documentation for its disallows property
+  should have a Boolean gentlehup
+  should have a Boolean readonly
+  should have a Boolean reverselookup
+  should have a ordered_list allows
+  should have a ordered_list disallows
+  instances
+    should delegete existence questions to its provider
+  testing the integer type properties
+    should return integer for default property concurrency (FAILED - 1)
+    should return integer whith integer for property concurrency
+    should return integer whith number string for property concurrency (FAILED - 2)
+    should raise error with non-number string for property concurrency (FAILED - 3)
+    should return integer for default property connmaxpending (FAILED - 4)
+    should return integer whith integer for property connmaxpending
+    should return integer whith number string for property connmaxpending (FAILED - 5)
+    should raise error with non-number string for property connmaxpending (FAILED - 6)
+    should return integer for default property connmaxpendingauth (FAILED - 7)
+    should return integer whith integer for property connmaxpendingauth
+    should return integer whith number string for property connmaxpendingauth (FAILED - 8)
+    should raise error with non-number string for property connmaxpendingauth (FAILED - 9)
+    should return integer for default property idletimeout (FAILED - 10)
+    should return integer whith integer for property idletimeout
+    should return integer whith number string for property idletimeout (FAILED - 11)
+    should raise error with non-number string for property idletimeout (FAILED - 12)
+    should return integer for default property indexsubstrifmaxlen (FAILED - 13)
+    should return integer whith integer for property indexsubstrifmaxlen
+    should return integer whith number string for property indexsubstrifmaxlen (FAILED - 14)
+    should raise error with non-number string for property indexsubstrifmaxlen (FAILED - 15)
+    should return integer for default property indexsubstrifminlen (FAILED - 16)
+    should return integer whith integer for property indexsubstrifminlen
+    should return integer whith number string for property indexsubstrifminlen (FAILED - 17)
+    should raise error with non-number string for property indexsubstrifminlen (FAILED - 18)
+    should return integer for default property indexsubstranylen (FAILED - 19)
+    should return integer whith integer for property indexsubstranylen
+    should return integer whith number string for property indexsubstranylen (FAILED - 20)
+    should raise error with non-number string for property indexsubstranylen (FAILED - 21)
+    should return integer for default property indexsubstranystep (FAILED - 22)
+    should return integer whith integer for property indexsubstranystep
+    should return integer whith number string for property indexsubstranystep (FAILED - 23)
+    should raise error with non-number string for property indexsubstranystep (FAILED - 24)
+    should return integer for default property indexintlen (FAILED - 25)
+    should return integer whith integer for property indexintlen
+    should return integer whith number string for property indexintlen (FAILED - 26)
+    should raise error with non-number string for property indexintlen (FAILED - 27)
+    should return integer for default property localssf (FAILED - 28)
+    should return integer whith integer for property localssf
+    should return integer whith number string for property localssf (FAILED - 29)
+    should raise error with non-number string for property localssf (FAILED - 30)
+    should return integer for default property sockbufmaxincoming (FAILED - 31)
+    should return integer whith integer for property sockbufmaxincoming
+    should return integer whith number string for property sockbufmaxincoming (FAILED - 32)
+    should raise error with non-number string for property sockbufmaxincoming (FAILED - 33)
+    should return integer for default property sockbufmaxincomingauth (FAILED - 34)
+    should return integer whith integer for property sockbufmaxincomingauth
+    should return integer whith number string for property sockbufmaxincomingauth (FAILED - 35)
+    should raise error with non-number string for property sockbufmaxincomingauth (FAILED - 36)
+    should return integer for default property threads (FAILED - 37)
+    should return integer whith integer for property threads
+    should return integer whith number string for property threads (FAILED - 38)
+    should raise error with non-number string for property threads (FAILED - 39)
+    should return integer for default property toolthreads (FAILED - 40)
+    should return integer whith integer for property toolthreads
+    should return integer whith number string for property toolthreads (FAILED - 41)
+    should raise error with non-number string for property toolthreads (FAILED - 42)
+    should return integer for default property writetimeout (FAILED - 43)
+    should return integer whith integer for property writetimeout
+    should return integer whith number string for property writetimeout (FAILED - 44)
+    should raise error with non-number string for property writetimeout (FAILED - 45)
+
+Failures:
+
+  1) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property concurrency
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  2) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property concurrency
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  3) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property concurrency
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  4) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property connmaxpending
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  5) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property connmaxpending
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  6) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property connmaxpending
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  7) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property connmaxpendingauth
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  8) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property connmaxpendingauth
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  9) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property connmaxpendingauth
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  10) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property idletimeout
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  11) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property idletimeout
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  12) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property idletimeout
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  13) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property indexsubstrifmaxlen
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  14) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property indexsubstrifmaxlen
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  15) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property indexsubstrifmaxlen
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  16) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property indexsubstrifminlen
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  17) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property indexsubstrifminlen
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  18) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property indexsubstrifminlen
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  19) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property indexsubstranylen
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  20) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property indexsubstranylen
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  21) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property indexsubstranylen
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  22) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property indexsubstranystep
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  23) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property indexsubstranystep
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  24) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property indexsubstranystep
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  25) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property indexintlen
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  26) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property indexintlen
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  27) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property indexintlen
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  28) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property localssf
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  29) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property localssf
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  30) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property localssf
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  31) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property sockbufmaxincoming
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  32) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property sockbufmaxincoming
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  33) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property sockbufmaxincoming
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  34) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property sockbufmaxincomingauth
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  35) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property sockbufmaxincomingauth
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  36) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property sockbufmaxincomingauth
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  37) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property threads
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  38) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property threads
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  39) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property threads
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  40) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property toolthreads
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  41) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property toolthreads
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  42) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property toolthreads
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+  43) Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property writetimeout
+     Failure/Error: described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+       expected nil to be an instance of Integer
+     # ./spec/type/ldapconfig_spec.rb:88:in `block (4 levels) in <top (required)>'
+
+  44) Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property writetimeout
+     Failure/Error: described_class.new(:name => 'config0', property => "10")[property].should == 10
+       expected: 10
+            got: "10" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:94:in `block (4 levels) in <top (required)>'
+
+  45) Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property writetimeout
+     Failure/Error: expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
+       expected Exception but nothing was raised
+     # ./spec/type/ldapconfig_spec.rb:97:in `block (4 levels) in <top (required)>'
+
+Finished in 0.82351 seconds
+133 examples, 45 failures
+
+Failed examples:
+
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property concurrency
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property concurrency
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property concurrency
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property connmaxpending
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property connmaxpending
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property connmaxpending
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property connmaxpendingauth
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property connmaxpendingauth
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property connmaxpendingauth
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property idletimeout
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property idletimeout
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property idletimeout
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property indexsubstrifmaxlen
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property indexsubstrifmaxlen
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property indexsubstrifmaxlen
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property indexsubstrifminlen
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property indexsubstrifminlen
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property indexsubstrifminlen
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property indexsubstranylen
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property indexsubstranylen
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property indexsubstranylen
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property indexsubstranystep
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property indexsubstranystep
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property indexsubstranystep
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property indexintlen
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property indexintlen
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property indexintlen
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property localssf
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property localssf
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property localssf
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property sockbufmaxincoming
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property sockbufmaxincoming
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property sockbufmaxincoming
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property sockbufmaxincomingauth
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property sockbufmaxincomingauth
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property sockbufmaxincomingauth
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property threads
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property threads
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property threads
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property toolthreads
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property toolthreads
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property toolthreads
+rspec ./spec/type/ldapconfig_spec.rb:87 # Puppet::Type::Ldapconfig testing the integer type properties should return integer for default property writetimeout
+rspec ./spec/type/ldapconfig_spec.rb:93 # Puppet::Type::Ldapconfig testing the integer type properties should return integer whith number string for property writetimeout
+rspec ./spec/type/ldapconfig_spec.rb:96 # Puppet::Type::Ldapconfig testing the integer type properties should raise error with non-number string for property writetimeout
