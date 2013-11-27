@@ -15,16 +15,16 @@ Different steps will be tagged, so one can follow the steps I did in my learning
 The dir structure :
 
 >├── ldap  
->│   ├── doc                  The text of this tutorial (to be written soon)  
->│   ├── lib                  Puppet - The puppet extention dirtree  
->│   ├── manifests            Puppet - The manifest dir  
->│   ├── Modulefile           Puppet - Module dependency etc file (see  puppet forge docs)  
->│   ├── Rakefile             Rspec  - created by rspec-puppet-init (check also .rspec file)  
->│   ├── README               Puppet Ldap module Readme file  
->│   ├── spec                 Puppet - rspec dirtree  
->│   ├── tests                Puppet - smoke test  
->│   └── unit_test_result     Output from the 'rake spec' command at thhe end of every tag  
->└── README.mda               This file  
+>│   ├── doc ................ The text of this tutorial (to be written soon)  
+>│   ├── lib ................ Puppet - The puppet extention dirtree  
+>│   ├── manifests .......... Puppet - The manifest dir  
+>│   ├── Modulefile ......... Puppet - Module dependency etc file (see  puppet forge docs)  
+>│   ├── Rakefile ........... Rspec  - created by rspec-puppet-init (check also .rspec file)  
+>│   ├── README ............. Puppet Ldap module Readme file  
+>│   ├── spec ............... Puppet - rspec dirtree  
+>│   ├── tests .............. Puppet - smoke test  
+>│   └── unit_test_result ... Output from the 'rake spec' command at thhe end of every tag  
+>└── README.mda ............. This file  
 
 
 Tags and there descriptions
