@@ -86,11 +86,7 @@ Puppet::Type.newtype(:ldapconfig) do
     # if 0, this attirbute will not be set
     defaultto 0
     munge do |value|
-      if value.is_a?(String) and value =~ /^[-0-9]+$/
-        Integer(value)
-      else
-        value
-      end
+      Integer(value)
     end
   end
   newproperty(:connmaxpending) do

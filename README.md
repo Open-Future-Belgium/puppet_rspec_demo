@@ -129,6 +129,8 @@ tag v0.0.2.1
     - adding the default values
     - let it fail when non integer is given
     - convert number strings to integer
+    - add a validate function for the :threads property
+    - we added also an extra rspec to check the validate function
 
 
 tag v0.0.2.2

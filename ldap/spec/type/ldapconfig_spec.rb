@@ -85,7 +85,7 @@ describe Puppet::Type.type(:ldapconfig) do
   describe "testing the integer type properties" do
     int_properties.each do | property|
       it "should return integer for default property #{property}" do
-        described_class.new(:name => 'config0')[property].should be_instance_of(Integer)
+        described_class.new(:name => 'config0')[property].should be_instance_of(Fixnum)
       end
       it "should return integer whith integer for property #{property}" do
         described_class.new(:name => 'config0', property => 10)[property].should == 10
@@ -96,12 +96,20 @@ describe Puppet::Type.type(:ldapconfig) do
       it "should raise error with non-number string for property #{property}" do
         expect { described_class.new(:name => 'config0', property => "wrong") }.to raise_error
       end
-      binding.pry
+    end
+  end
+
+  describe "Testing validation :threads property" do
+    it "should raise error when value is lower than 2" do
+      expect { described_class.new(:name => 'config0', :threads => 1) }.to raise_error
+    end
+    it "should raise error when number string lower than 2" do
+      expect { described_class.new(:name => 'config0', :threads => "1") }.to raise_error
     end
   end
 
   #
-  # Checking for  sepcific Puppet::Properties types
+  # Checking for  specific Puppet::Properties types
   #
   bool_properties.each do | property |
     it "should have a Boolean #{property}" do
