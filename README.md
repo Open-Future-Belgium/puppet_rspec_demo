@@ -1,6 +1,9 @@
 puppet_rspec_demo
 =================
 
+Interesting blog :
+http://garylarizza.com/blog/2013/11/25/fun-with-providers/
+
 Learning to write a puppet custom type/provider, starting with the rspec definitions,
 and then step by step coding everything to pass the test.
 
@@ -135,9 +138,10 @@ tag v0.0.2.1
 
 tag v0.0.2.2
 
-      - boolean properties
-        - test that all booleans return  true/false
-        - test that all booleans raise an error if not
+    - boolean properties
+      - Always return false (default) when not given
+      - test translation of (o,1,yes,no,true,false,y.n ...) returns boolean
+      - test that idf not a boolean, it raises an error
 
 tag v0.0.2.4
 
