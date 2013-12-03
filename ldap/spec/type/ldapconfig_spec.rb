@@ -129,7 +129,7 @@ describe Puppet::Type.type(:ldapconfig) do
       it "should have a Boolean #{property}" do
         described_class.attrclass(property).ancestors.should be_include(Puppet::Property::Boolean)
       end
-      it "should return the default value is property #{property} is not set" do
+      it "should return the default value if property #{property} is not set" do
         described_class.new(:name => 'config0')[property].should == false
       end
       # Following tests are not needed, but only verify the puppet code does  work and raise error when needed

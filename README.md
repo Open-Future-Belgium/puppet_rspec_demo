@@ -143,11 +143,25 @@ tag v0.0.2.2
     - See comment in rspec file :  the puppet::property::boolean class translates the boolean-like
       values and raises an error if other values are given.  (we added tests to verify this)
 
+tag v0.0.2.3
+
+  - boolean properties making the test pass
+    - add defaultto  - always use Symbols - in this case :false, otherwise it will not work
 
 tag v0.0.2.4
 
   - path-properties
+    - a default should be provide (shoudl also validate)
     - should all be absolete paths, else raise error
+
+tag v0.0.2.5
+
+  - path-properties
+    - using rubys filepath class
+    - all tests pass
+
+tag v.0.0.2.6
+
   - string properties
     - tests depends on the property, is it requires,  restricted value range
   - olist-properties

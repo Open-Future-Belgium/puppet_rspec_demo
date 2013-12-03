@@ -233,15 +233,20 @@ Puppet::Type.newtype(:ldapconfig) do
   #
   # bool_properties
   #
+  # When setting defaultto vaules, use Symbols to make it work, otherwise, null will be returned
+  #
 
   newproperty(:gentlehup, :boolean => true, :parent => Puppet::Property::Boolean) do
     desc 'A  SIGHUP signal will only cause a "gentle" shutdown-attempt'
+    defaultto :false
   end
   newproperty(:readonly, :boolean => true, :parent => Puppet::Property::Boolean) do
     desc "This option puts the database into \"read-only\" mode. Any attempts to modify the database will return an \"unwilling to perform\" error"
+    defaultto :false
   end
   newproperty(:reverselookup, :boolean => true, :parent => Puppet::Property::Boolean) do
     desc "Enable/disable client name unverified reverse lookup"
+    defaultto :false
   end
 
   #
