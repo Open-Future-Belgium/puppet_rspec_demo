@@ -80,7 +80,7 @@ describe Puppet::Type.type(:ldapconfig) do
   end
 
   #
-  # Checking the int_properties, they return an integer value, even when a decima string is provided
+  # Checking the int_properties, they return an integer value, even when a decimal string is provided
   #
   describe "testing the integer type properties" do
     int_properties.each do | property|
@@ -111,9 +111,34 @@ describe Puppet::Type.type(:ldapconfig) do
   #
   # Checking for  specific Puppet::Properties types
   #
-  bool_properties.each do | property |
-    it "should have a Boolean #{property}" do
-      described_class.attrclass(property).ancestors.should be_include(Puppet::Property::Boolean)
+
+  # The Puppet::Property::Boolean uses the Puppet::Coercion
+  # which  accept the follwing formats for
+  # true  = true, :true, 'true', :yes, 'yes'
+  # false = false, :false, 'false', :no, 'no'
+  # We do not have to test those values, we are using already proven/tested code for that
+  # We only test if it raises an error if somethinhg else is give
+  #
+  # And it does raise an error if no bool is given :
+  # 'Munging failed for value "0" in class readonly: expected a boolean value'
+  # If it does not do that, we have to add our own validation to it, otherwise, we only add defaults
+  #
+  # We can keep the testing of the default into the loop, since all properties default to FALSE
+  describe "testing boolean typed ldap property settings" do
+    bool_properties.each do | property |
+      it "should have a Boolean #{property}" do
+        described_class.attrclass(property).ancestors.should be_include(Puppet::Property::Boolean)
+      end
+      it "should return the default value is property #{property} is not set" do
+        described_class.new(:name => 'config0')[property].should == false
+      end
+      # Following tests are not needed, but only verify the puppet code does  work and raise error when needed
+#      it "should return false if property #{property} is set as string" do
+#        described_class.new(:name => 'config0', property => 'FalSE')[property].should == false
+#      end
+#      it "should raise error if property #{property} is not boolean-like" do
+#        expect { described_class.new(:name => 'config0', property => '1') }.to raise_error
+#      end
     end
   end
 

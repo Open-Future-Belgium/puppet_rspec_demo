@@ -138,20 +138,21 @@ tag v0.0.2.1
 
 tag v0.0.2.2
 
-    - boolean properties
-      - Always return false (default) when not given
-      - test translation of (o,1,yes,no,true,false,y.n ...) returns boolean
-      - test that idf not a boolean, it raises an error
+  - boolean properties
+    - Always return false (default) when not given
+    - See comment in rspec file :  the puppet::property::boolean class translates the boolean-like
+      values and raises an error if other values are given.  (we added tests to verify this)
+
 
 tag v0.0.2.4
 
-      - path-properties
-        - should all be absolete paths, else raise error
-      - string properties
-        - tests depends on the property, is it requires,  restricted value range
-      - olist-properties
-        - check for allowed values
-        - special check in this case are needed
+  - path-properties
+    - should all be absolete paths, else raise error
+  - string properties
+    - tests depends on the property, is it requires,  restricted value range
+  - olist-properties
+    - check for allowed values
+    - special check in this case are needed
 
 
  
