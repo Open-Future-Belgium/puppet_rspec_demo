@@ -156,6 +156,7 @@ tag v0.0.2.4
 
 tag v0.0.2.5
 
+  - Added some extra describe "" do statements , to get a better rspec output
   - path-properties
     - using rubys filepath class
     - all tests pass
