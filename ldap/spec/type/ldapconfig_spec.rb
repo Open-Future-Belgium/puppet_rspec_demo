@@ -64,18 +64,20 @@ describe Puppet::Type.type(:ldapconfig) do
   # this checks are for all defined properties.  The forst block  applies to all properties,
   # Then the different properties groups are checked for specific things.
   #
-  (int_properties + bool_properties + path_properties + string_properties + olist_properties + list_properties + key_properties).each do | property |
-    #
-    # check if a Puppet::Property derived class is defined for the property
-    #
-    it "should have a #{property} property" do
-      described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
-    end
-    #
-    # test if a doc string is defined inside the property instance
-    #
-    it "should have documentation for its #{property} property" do
-      described_class.attrclass(property).doc.strip.should_not == ""
+  describe "testing all desired properties are declared and documented" do
+    (int_properties + bool_properties + path_properties + string_properties + olist_properties + list_properties + key_properties).each do | property |
+      #
+      # check if a Puppet::Property derived class is defined for the property
+      #
+      it "should have a #{property} property" do
+        described_class.attrclass(property).ancestors.should be_include(Puppet::Property)
+      end
+      #
+      # test if a doc string is defined inside the property instance
+      #
+      it "should have documentation for its #{property} property" do
+        described_class.attrclass(property).doc.strip.should_not == ""
+      end
     end
   end
 
@@ -142,23 +144,42 @@ describe Puppet::Type.type(:ldapconfig) do
     end
   end
 
-  olist_properties.each do | property |
-    it "should have a ordered_list #{property}" do
-      described_class.attrclass(property).ancestors.should be_include(Puppet::Property::OrderedList)
+  describe "testing the path properties" do
+    path_properties.each do |property|
+      it "should return the default value if property #{property} is not set" do
+        # we only test if the property is not nill, since the paths will differ for every property
+        # It will also raise an error if the defaulto does not pass the validation
+        described_class.new(:name => 'config0')[property].should_not == nil
+      end
+      it "should raise error if not absolete path" do
+        expect { described_class.new(:name => 'config0', property => 'not-a-path') }.to raise_error
+      end
     end
   end
 
-  list_properties.each do | property |
-    it "should have a list #{property}" do
-      described_class.attrclass(property).ancestors.should be_include(Puppet::Property::List)
+  describe "testing of the ordered list properties" do
+    olist_properties.each do | property |
+      it "should have a ordered_list #{property}" do
+        described_class.attrclass(property).ancestors.should be_include(Puppet::Property::OrderedList)
+      end
     end
   end
 
-  key_properties.each do | property |
-    it "should have a key vaklues #{property}" do
-      described_class.attrclass(property).ancestors.should be_include(Puppet::Property::KeyValue)
+  describe "testing of the unordered list properties" do
+    list_properties.each do | property |
+      it "should have a list #{property}" do
+        described_class.attrclass(property).ancestors.should be_include(Puppet::Property::List)
+      end
     end
   end
-   # Type specific common tests that are performed depending on which property type
-   # like list, ordered list, keyvalues
+
+  describe "testsing of the key-value properties" do
+    key_properties.each do | property |
+      it "should have a key-values #{property}" do
+        described_class.attrclass(property).ancestors.should be_include(Puppet::Property::KeyValue)
+      end
+    end
+  end
+  # Type specific common tests that are performed depending on which property type
+  # like list, ordered list, keyvalues
 end
