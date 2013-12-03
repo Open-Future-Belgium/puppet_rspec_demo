@@ -1,0 +1,26 @@
+All code I will be writing can be found in a github repo, https://github.com/Open-Future-Belgium/puppet_rspec_demo.
+( in time, i will redo all the steps a did, because for now, I will do things that should not be done in  the order I did it.
+By doing all those things, I will be learning a lot, which will be used in the end to re-arrange, and make this step by step tutorial better).
+
+Every step I made will be tagged, so you can checout the code from github and run the rspec against it.
+
+The developing proces will be an iterating one.  We will just sit down, and start thinking wat we need.  When we are happy with the our plan, we will start writing the rspec test cases.  When all the tests are written, in such we that if we pass all test, we can be sure we have implemented what we (think in the first place) needed.
+
+Running the rspec test, will of-course result in failures, because we did not have written any type and.or provider code.
+
+Those code state will always be tagged.
+
+The next step is to write the typeprovider code, and make sure we pass all tests.  Dusing this process, it is very good possible we made some wrong decisions, we discovered that our initial plan needs some adjustments etc.  This will reflect in adjusting the rspec file also.  When all rspec test pass, meaning we have developed the functionality we want, and we believe it is working, (since all tests are passed), the code will be tagged.
+
+So in short we will tag the code when :
+
+* we wrote new rspec test to test new features/fundtionality we will be adding
+* we wrote the code to make those test pass
+* we did something special that needs explanation  ...
+
+For every tag, I will (try) to descrribe what I did, and I will try to explain the why (if i understand the why).
+
+I dit get most information from reading the puppetlabs native type's rspec and type code (on github), from people answering my (sometimes stupid) questions on the puppet-user and puppet-dev mailing lists, discusions I had on the puppet, puppet-dev IRC channels, and discussion we had during the meetups of the belgian puppet user group.
+
+I wisch to thank all people for there inderstanding and patience, both in the past and the future.
+

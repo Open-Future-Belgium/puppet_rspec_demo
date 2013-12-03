@@ -1,0 +1,9 @@
+eading a lot about rspec-puppet, doeing some simple rspec-testing with puppet-modules, starting to write some rspec-file for excisting modules, i find it stille ea bit harder to do it the proper way - first the rspec file, then the module.  But luckily, some information is about doing it the proper way is available on the net.
+
+On the other hand, doing the same thing for a custom type is much harder.  I did not found any  documentation on how to write puppet type and provider starting from an rspec file, and develop your type first, anf than your provider step by step.
+
+Write your rspec test, and make tehem pass your them all, add more test, adding more and more functioanlity and complexity to your code.
+
+So, time to get on my leaning shoes agein, and start developing my first puppet type and provider this way. An why not writing down the stuff I learned, the tricks I used, and the patterns I think i will find during the process ?
+
+But why something  comples as a type/provider for  openldap, using the dynamic configuration method, supported since version 2.3 ?  The answer is simple, because I need this, to put our openldap server, which we are using as our ENC, in puppet, so everything is managed by puppet, even our puppet servers and everything else prvoviding the needed functionality for our configyration management infrastructure. 
