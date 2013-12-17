@@ -206,28 +206,75 @@ Puppet::Type.newtype(:ldapconfig) do
 
   newproperty(:logfile) do
     desc "Specify  a  file  for recording debug log messages."
+    defaultto "stderr"
+    validate do | value |
+      if ! (value =~ /^std/)
+        unless Pathname.new(value).absolute?
+          fail("Invalid logfile given - Absolute path required - given #{value}")
+        end
+      end
+    end
   end
+
   newproperty(:argsfile) do
     desc 'The (absolute) name of a file that will hold the slapd servers command line (program name and
               options).'
+    defaultto "/var/run/openldap/slapd.args"
+    validate do | value |
+      unless Pathname.new(value).absolute?
+        fail("Invalid argsfile given - Absolute path required - given #{value}")
+      end
+    end
   end
+
   newproperty(:pidfile) do
     desc "The (absolute) name of a file that will hold the slapd servers process ID"
+    defaultto "/var/run/openldap/slapd.pid"
+    validate do | value |
+      unless Pathname.new(value).absolute?
+        fail("Invalid pidfile given - Absolute path required - given #{value}")
+      end
+    end
   end
-  newproperty(:tlscacertificatepath) do
-    desc "Specifies the path of a directory that contains Certificate Authority certificates in separate individual files."
-  end
+
   newproperty(:tlscertificatefile) do
-    desc "Specifies the file that contains the slapd server certificate. "
+    desc "Specifies the file that contains the slapd server certificate."
+    defaultto "/etc/openldap/certs/openldap.pem"
+    validate do | value |
+      unless Pathname.new(value).absolute?
+        fail("Invalid tlscertificatefile given - Absolute path required - given #{value}")
+      end
+    end
   end
+
   newproperty(:tlscertificatekeyfile) do
-    desc "Specifies the file that contains the slapd server private key that matches the certificate stored in the olcTLSCertificateFile file."
+    desc "Specifies the file that contains the slapd server private key that matches the certificate stored in the olcTLSCertificateFile file"
+    defaultto "/etc/openldap/certs/password"
+    validate do | value |
+      unless Pathname.new(value).absolute?
+        fail("Invalid tlscertificatekeyfile given - Absolute path required - given #{value}")
+      end
+    end
   end
+
   newproperty(:configdir) do
     desc "The (absolete) path of the directory where the dynamic configuration files reside"
+    defaultto "/etc/openldap/slapd.d"
+    validate do | value |
+      unless Pathname.new(value).absolute?
+        fail("Invalid configdir given - Absolute path required - given #{value}")
+      end
+    end
   end
+
   newproperty(:configfile) do
     desc "Obslote, and not used by in dynamic ldap configuration"
+    defaultto "/etc/openldap/slapd.conf.bak"
+    validate do | value |
+      unless Pathname.new(value).absolute?
+        fail("Invalid configfile given - Absolute path required - given #{value}")
+      end
+    end
   end
 
   #

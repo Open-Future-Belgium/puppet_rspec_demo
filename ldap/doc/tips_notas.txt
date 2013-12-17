@@ -1,0 +1,31 @@
+# the content schould go somewhere into the docs, but still noot clear where
+
+
+described class
+
+If the first argument to the outermost example group is a class, the class is
+exposed to each example via the described_class() method.
+
+stubs/stub , method applicable to any class :
+
+==> tell the object to
+return a value (or values) in response to a given message. If the message is
+never received, nothing happens.
+
+Passing block to stub implementation
+
+describe "a stubbed implementation" do
+  it "works" do
+    object = Object.new
+    object.stub(:foo) do |arg|
+      if arg == :this
+        "got this"
+      elsif arg == :that
+        "got that"
+      end
+    end
+    
+    object.foo(:this).should eq("got this")
+    object.foo(:that).should eq("got that")
+  end
+end

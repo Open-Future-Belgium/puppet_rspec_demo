@@ -12,7 +12,7 @@ describe Puppet::Type.type(:ldapconfig) do
       def flush; end
       def self.instances; []; end
     end
-    described_class.stubs(:defaultprovider).returns @provider_class
+    described_class.stub(:defaultprovider).and_return @provider_class
   end
 
   it "should be able to create an instance" do
@@ -53,8 +53,8 @@ describe Puppet::Type.type(:ldapconfig) do
                         :connmaxpendingauth, :idletimeout, :indexsubstrifmaxlen, :indexsubstrifminlen,
                         :indexsubstranylen, :indexsubstranystep, :indexintlen, :localssf, :sockbufmaxincoming,
                         :sockbufmaxincomingauth, :threads, :toolthreads, :writetimeout ]
-  path_properties =   [ :logfile, :argsfile, :pidfile, :tlscacertificatepath, :tlscertificatefile,
-                        :tlscertificatekeyfile, :configdir, :configfile ]
+  path_properties =   [ :logfile, :argsfile, :pidfile, :tlscertificatekeyfile, :tlscertificatefile,
+                        :configdir, :configfile ]
   bool_properties =   [ :gentlehup, :readonly, :reverselookup ]
   olist_properties  = [ :allows, :disallows ]
   list_properties   = []
@@ -151,8 +151,11 @@ describe Puppet::Type.type(:ldapconfig) do
         # It will also raise an error if the defaulto does not pass the validation
         described_class.new(:name => 'config0')[property].should_not == nil
       end
-      it "should raise error if not absolete path" do
+      it "should raise error if property #{property} is not absolute path" do
         expect { described_class.new(:name => 'config0', property => 'not-a-path') }.to raise_error
+      end
+      it "should return /this/is/an/absolute/path for property #{property} if set" do
+         described_class.new(:name => 'config0', property => '/this/is/an/absolute/path')[property].should == '/this/is/an/absolute/path'
       end
     end
   end

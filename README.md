@@ -158,7 +158,9 @@ tag v0.0.2.5
 
   - Added some extra describe "" do statements , to get a better rspec output
   - path-properties
-    - using rubys filepath class
+    - using ruby's filepath class for validation
+    - disables Mozilla-NSS features tlscacertificatefile and :tlscacertificatekeyfile
+    - added extra test, for correct absolute path
     - all tests pass
 
 tag v.0.0.2.6
