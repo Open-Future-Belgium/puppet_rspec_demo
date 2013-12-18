@@ -184,5 +184,65 @@ describe Puppet::Type.type(:ldapconfig) do
     end
   end
   # Type specific common tests that are performed depending on which property type
-  # like list, ordered list, keyvalues
+
+  describe "testing specific string properties" do
+    describe "the :saslsecprops property" do
+      # flags : none, noanonymous, noplain, noactive, nodict,forwardsec,  passcred , minssf=<factor>, maxssf=<factor>, maxbufsize=<size>
+      # factor : 0, 1, 56, 112, 128, MAX_INT 
+      # size : 0<>65536
+      it "should return the default value if no value is given" do
+        # this check faild also, beacuse by default, only the first value is passed
+        # and this is a multivalue property
+        described_class.new(:name => 'config0')[:saslsecprops].should == ['noanonymous','noplain']
+      end
+      it "should generate an error if unsupported flag is given" do
+        expect { described_class.new(:name => 'config0', :saslsecprops => 'faulty') }.to raise_error
+      end
+      it "should return the list of parameters if all are supported" do
+        described_class.new(:name => 'config0', :saslsecprops => ['noanonymous','noplain','passcred'])[:saslsecprops].should == ['noanonymous','noplain','passcred']
+      end
+      it "should generate an error if only one flag is supported of the list" do
+        expect { described_class.new(:name => 'config0', :saslsecprops => ['noanonymous','noplain','passcred','faulty']) }.to raise_error
+      end
+      describe "should validate flag minssf if given" do
+        it "should generate an error if factor is not supported" do
+          expect { described_class.new(:name => 'config0', :saslsecprops => 'minssf=9999') }.to raise_error
+        end
+        it "should have a factor" do
+          described_class.new(:name => 'config0', :saslsecprops => 'minssf=112')[:saslsecprops].should == 'minssf=112'
+        end
+      end
+      describe "should validate flag maxssf if given" do
+        it "should generate an error if factor is not supported" do
+          expect { described_class.new(:name => 'config0', :saslsecprops => 'maxssf=9999') }.to raise_error
+        end
+        it "should generate an error if factor is not supported" do
+          described_class.new(:name => 'config0', :saslsecprops => 'maxssf=112')[:saslsecprops].should == 'maxssf=112'
+        end
+      end
+      describe "should validate flag maxbufsize" do
+        it "should generate an error if not valid value" do
+          expect { described_class.new(:name => 'config0', :saslsecprops => 'maxbuf=fault') }.to raise_error
+        end
+        it "should have a maxbufzise" do
+          described_class.new(:name => 'config0', :saslsecprops => 'maxbufsize=1024')[:saslsecprops].should == 'maxbufsize=1024'
+        end
+      end
+    end
+    describe "the :tlsverifyclient property" do
+      # levels : never (default), allow, try, demand|hard|true
+      it "should have the value 'never' as default" do
+          described_class.new(:name => 'config0')[:tlsverifyclient].should == 'never'
+      end
+      it "should raise an error if unvalid level is provided" do
+        expect { described_class.new(:name => 'config0', :tlsverifyclient => 'fault') }.to raise_error
+      end
+    end
+    describe "the :authzregexp property" do
+      # only check if multiple values are allowed.  Order is important
+      it "should allow multiple values" do
+        described_class.new(:name => 'config0', :authzregexp => ['value1','value2'])[:authzregexp].should == ['value1','value2']
+      end
+    end
+  end
 end

@@ -163,15 +163,26 @@ tag v0.0.2.5
     - added extra test, for correct absolute path
     - all tests pass
 
-tag v.0.0.2.6
+tag v0.0.2.6
 
   - string properties
+    - Added 13 new tests, having 3 tests produce false positives (beware)
+    - :attributeoptions - optional and no validation
+    - :saslsecprops, predifined values, could contain a list of  multiple values
+      - added tests to verify deeper level of validation
+    - :tlsverifyclient
+    - :authzregexp
     - tests depends on the property, is it requires,  restricted value range
+
+tag v0.0.2.7
+
+tag v0.0.2.8
+
+  - :loglevel
+
+
+
   - olist-properties
     - check for allowed values
     - special check in this case are needed
 
-
- 
-and_so_on
-  
