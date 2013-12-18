@@ -62,10 +62,37 @@ Puppet::Type.newtype(:ldapconfig) do
   #
 
   newproperty(:attributeoptions) do
-    desc "Define tagging attribute options or option tag/range prefixes. Options must not end with '-', prefixes must end with '-'"
+    desc "Define tagging attribute options or option tag/range prefixes. Options must not end with \'-\', prefixes must end with \'-\'"
   end
-  newproperty(:saslsecprops) do
-    desc "The SASL secprops to apply. Defaults to 'noplain,noanonymous'."
+
+  # we need to allow multiple values to be set, array_matching defaults to first
+  newproperty(:saslsecprops, :array_matching => :all) do
+    desc "The SASL secprops to apply. Defaults to \'noanonymous,noplain\'."
+    defaultto ['noanonymous', 'noplain']
+    # we cannot use newvalues, because we have specific validations depending on the values used
+    # order should not be  important
+    validate do | value |
+      # we fail on the first fail
+      case value
+      when :none, :noanonymous, :noplain, :noactive, :nodict, :forwardsec, :passcred
+        # value is accepted
+      when /^minssf=/,/^maxssf=/
+        case value.split('=',2)[1]
+        when "0", "1", "56", "112", "128"
+          # we have to validate the factor
+        else
+          raise ArgumentError, "property saslsecprops : #{value}= should have a value of [0|1|56|112|128]"
+        end
+      when /^maxbufsize=/
+        # The Integer() function raises an error if it has a 'non' decimal string
+        totest = Integer(value.split('=',2)[1])
+        if totest >= 0 || totest <= 65536
+          # passed
+        else
+          raise ArgumentError, "property saslsecprops : #{value}= must be between 0 and 65536. See man slapd-config"
+        end
+      end
+    end
   end
   newproperty(:tlsverifyclient) do
     desc "Specifies what checks to perform on client certificates in an incoming TLS session, if any"

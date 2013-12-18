@@ -208,24 +208,27 @@ describe Puppet::Type.type(:ldapconfig) do
         it "should generate an error if factor is not supported" do
           expect { described_class.new(:name => 'config0', :saslsecprops => 'minssf=9999') }.to raise_error
         end
-        it "should have a factor" do
-          described_class.new(:name => 'config0', :saslsecprops => 'minssf=112')[:saslsecprops].should == 'minssf=112'
+        it "should have a valid factor" do
+          described_class.new(:name => 'config0', :saslsecprops => 'minssf=112')[:saslsecprops].should == ['minssf=112']
         end
       end
       describe "should validate flag maxssf if given" do
         it "should generate an error if factor is not supported" do
           expect { described_class.new(:name => 'config0', :saslsecprops => 'maxssf=9999') }.to raise_error
         end
-        it "should generate an error if factor is not supported" do
-          described_class.new(:name => 'config0', :saslsecprops => 'maxssf=112')[:saslsecprops].should == 'maxssf=112'
+        it "should have a valid factor" do
+          described_class.new(:name => 'config0', :saslsecprops => 'maxssf=112')[:saslsecprops].should == ['maxssf=112']
         end
       end
       describe "should validate flag maxbufsize" do
-        it "should generate an error if not valid value" do
+        it "should generate an error if subvalue is a string" do
           expect { described_class.new(:name => 'config0', :saslsecprops => 'maxbuf=fault') }.to raise_error
         end
+        it "should generate an error if not valid value" do
+          expect { described_class.new(:name => 'config0', :saslsecprops => 'maxbuf=99999') }.to raise_error
+        end
         it "should have a maxbufzise" do
-          described_class.new(:name => 'config0', :saslsecprops => 'maxbufsize=1024')[:saslsecprops].should == 'maxbufsize=1024'
+          described_class.new(:name => 'config0', :saslsecprops => 'maxbufsize=1024')[:saslsecprops].should == ['maxbufsize=1024']
         end
       end
     end
