@@ -74,7 +74,7 @@ Puppet::Type.newtype(:ldapconfig) do
     validate do | value |
       # we fail on the first fail
       case value
-      when :none, :noanonymous, :noplain, :noactive, :nodict, :forwardsec, :passcred
+      when 'none', 'noanonymous', 'noplain', 'noactive', 'nodict', 'forwardsec', 'passcred'
         # value is accepted
       when /^minssf=/,/^maxssf=/
         case value.split('=',2)[1]
@@ -91,6 +91,8 @@ Puppet::Type.newtype(:ldapconfig) do
         else
           raise ArgumentError, "property saslsecprops : #{value}= must be between 0 and 65536. See man slapd-config"
         end
+      else
+        raise ArgumentError, "property saslsecprops : #{value} not allowed. See man slapd-config"
       end
     end
   end
