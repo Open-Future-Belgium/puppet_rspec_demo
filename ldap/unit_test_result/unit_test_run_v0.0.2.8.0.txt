@@ -188,35 +188,43 @@ Puppet::Type::Ldapconfig
     the :authzregexp property
       should allow multiple values
   the :loglevel property
+    should default to 'none' (FAILED - 1)
     when using integers
-      should accept multiple integers and integer strings and return multiple labels (FAILED - 1)
-      should accept an -or- integer and return (multiple) labels (FAILED - 2)
-      should raise an error if unsupported integer is given (FAILED - 3)
+      should accept multiple integers and integer strings and return multiple labels (FAILED - 2)
+      should accept an -or- integer and return (multiple) labels (FAILED - 3)
+      should raise an error if unsupported integer is given (FAILED - 4)
 
 Failures:
 
-  1) Puppet::Type::Ldapconfig the :loglevel property when using integers should accept multiple integers and integer strings and return multiple labels
+  1) Puppet::Type::Ldapconfig the :loglevel property should default to 'none'
+     Failure/Error: described_class.new(:name => 'config0')[:loglevel].should == [:none]
+       expected: [:none]
+            got: nil (using ==)
+     # ./spec/type/ldapconfig_spec.rb:265:in `block (3 levels) in <top (required)>'
+
+  2) Puppet::Type::Ldapconfig the :loglevel property when using integers should accept multiple integers and integer strings and return multiple labels
      Failure/Error: described_class.new(:name => 'config0', :loglevel => [1,'2',4,'64'])[:loglevel].should == [:trace, :packets, :args, :config]
        expected: [:trace, :packets, :args, :config]
             got: 1 (using ==)
-     # ./spec/type/ldapconfig_spec.rb:267:in `block (4 levels) in <top (required)>'
+     # ./spec/type/ldapconfig_spec.rb:269:in `block (4 levels) in <top (required)>'
 
-  2) Puppet::Type::Ldapconfig the :loglevel property when using integers should accept an -or- integer and return (multiple) labels
+  3) Puppet::Type::Ldapconfig the :loglevel property when using integers should accept an -or- integer and return (multiple) labels
      Failure/Error: described_class.new(:name => 'config0', :loglevel => 71)[:loglevel].should == [:trace, :packets, :args, :config]
        expected: [:trace, :packets, :args, :config]
             got: 71 (using ==)
-     # ./spec/type/ldapconfig_spec.rb:270:in `block (4 levels) in <top (required)>'
+     # ./spec/type/ldapconfig_spec.rb:272:in `block (4 levels) in <top (required)>'
 
-  3) Puppet::Type::Ldapconfig the :loglevel property when using integers should raise an error if unsupported integer is given
+  4) Puppet::Type::Ldapconfig the :loglevel property when using integers should raise an error if unsupported integer is given
      Failure/Error: expect { described_class.new(:name => 'config0', :loglevel => ['1', 2, 3,'4','5']) }.to raise_error
        expected Exception but nothing was raised
-     # ./spec/type/ldapconfig_spec.rb:274:in `block (4 levels) in <top (required)>'
+     # ./spec/type/ldapconfig_spec.rb:276:in `block (4 levels) in <top (required)>'
 
-Finished in 0.47175 seconds
-175 examples, 3 failures
+Finished in 0.47578 seconds
+176 examples, 4 failures
 
 Failed examples:
 
-rspec ./spec/type/ldapconfig_spec.rb:266 # Puppet::Type::Ldapconfig the :loglevel property when using integers should accept multiple integers and integer strings and return multiple labels
-rspec ./spec/type/ldapconfig_spec.rb:269 # Puppet::Type::Ldapconfig the :loglevel property when using integers should accept an -or- integer and return (multiple) labels
-rspec ./spec/type/ldapconfig_spec.rb:273 # Puppet::Type::Ldapconfig the :loglevel property when using integers should raise an error if unsupported integer is given
+rspec ./spec/type/ldapconfig_spec.rb:264 # Puppet::Type::Ldapconfig the :loglevel property should default to 'none'
+rspec ./spec/type/ldapconfig_spec.rb:268 # Puppet::Type::Ldapconfig the :loglevel property when using integers should accept multiple integers and integer strings and return multiple labels
+rspec ./spec/type/ldapconfig_spec.rb:271 # Puppet::Type::Ldapconfig the :loglevel property when using integers should accept an -or- integer and return (multiple) labels
+rspec ./spec/type/ldapconfig_spec.rb:275 # Puppet::Type::Ldapconfig the :loglevel property when using integers should raise an error if unsupported integer is given

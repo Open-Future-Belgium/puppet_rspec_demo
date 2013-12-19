@@ -261,7 +261,9 @@ describe Puppet::Type.type(:ldapconfig) do
     # - introduce the undef (?) special value, to remove previous set values
     # - order is unimportant, so 1,2 and 2,1 are the same
     #
-
+    it "should default to 'none'"do
+      described_class.new(:name => 'config0')[:loglevel].should == [:none]
+    end
     describe "when using integers" do
       it "should accept multiple integers and integer strings and return multiple labels" do
         described_class.new(:name => 'config0', :loglevel => [1,'2',4,'64'])[:loglevel].should == [:trace, :packets, :args, :config]
