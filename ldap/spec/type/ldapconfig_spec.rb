@@ -235,7 +235,10 @@ describe Puppet::Type.type(:ldapconfig) do
     describe "the :tlsverifyclient property" do
       # levels : never (default), allow, try, demand|hard|true
       it "should have the value 'never' as default" do
-          described_class.new(:name => 'config0')[:tlsverifyclient].should == 'never'
+          described_class.new(:name => 'config0')[:tlsverifyclient].should == :never
+      end
+      it "should have the value 'demand' if set" do
+          described_class.new(:name => 'config0',:tlsverifyclient => 'demand')[:tlsverifyclient].should == :demand
       end
       it "should raise an error if unvalid level is provided" do
         expect { described_class.new(:name => 'config0', :tlsverifyclient => 'fault') }.to raise_error

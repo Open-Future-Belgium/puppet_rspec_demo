@@ -172,11 +172,17 @@ tag v0.0.2.6
       - added tests to verify deeper level of validation
     - :tlsverifyclient
     - :authzregexp
-    - tests depends on the property, is it requires,  restricted value range
 
 tag v0.0.2.7
 
+   - string properties implementation - make the tests pass
+
 tag v0.0.2.8
+
+  - string properties - part 2
+    - :loglevel property (more complicated case)
+
+tag v0.0.2.9
 
   - :loglevel
 

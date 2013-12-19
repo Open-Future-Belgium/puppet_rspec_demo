@@ -96,13 +96,18 @@ Puppet::Type.newtype(:ldapconfig) do
       end
     end
   end
+
   newproperty(:tlsverifyclient) do
+    # here we can use the newvalues for validation.
     desc "Specifies what checks to perform on client certificates in an incoming TLS session, if any"
+    defaultto 'never'
+    newvalues('never','allow','try','demand','hard','true')
   end
+
   newproperty(:loglevel) do
     desc " Specify the level at which debugging statements and operation statistics should be syslogged (currently logged to the syslogd(8) LOG_LOCAL4 facility)."
   end
-  newproperty(:authzregexp) do
+  newproperty(:authzregexp, :array_matching => :all) do
     desc "An array of authz-regexps"
   end
 

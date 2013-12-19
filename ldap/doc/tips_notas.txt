@@ -29,3 +29,33 @@ describe "a stubbed implementation" do
     object.foo(:that).should eq("got that")
   end
 end
+
+
+
+test for multiple values
+
+    the :authzregexp property
+      should allow multiple values (FAILED - 3)
+
+  3) Puppet::Type::Ldapconfig testing specific string properties the :authzregexp property should allow multiple values
+     Failure/Error: described_class.new(:name => 'config0', :authzregexp => ['value1','value2'])[:authzregexp].should == ['value1','value2']
+       expected: ["value1", "value2"]
+            got: "value1" (using ==)
+     # ./spec/type/ldapconfig_spec.rb:247:in `block (4 levels) in <top (required)>'
+
+The code :
+
+  newproperty(:authzregexp) do
+    desc "An array of authz-regexps"
+  end
+
+The rspec test:
+
+    describe "the :authzregexp property" do
+      # only check if multiple values are allowed.  Order is important
+      it "should allow multiple values" do
+        described_class.new(:name => 'config0', :authzregexp => ['value1','value2'])[:authzregexp].should == ['value1','value2']
+      end
+    end
+
+
