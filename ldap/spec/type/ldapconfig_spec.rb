@@ -251,4 +251,34 @@ describe Puppet::Type.type(:ldapconfig) do
       end
     end
   end
+  describe "the :loglevel property" do
+    # this one is a tricky one, since we have we want to support all representations of the loglevel values
+    #
+    # Before writing the tests, we just sit down and think waht we want :
+    #
+    # - Use integers, hexadecimal and labels as value (mixed array). and -or-ed integers/hexadecimals
+    # - Translate all values internally to the labels (easier to read/understand)
+    # - introduce the undef (?) special value, to remove previous set values
+    # - order is unimportant, so 1,2 and 2,1 are the same
+    #
+
+    describe "when using integers" do
+      it "should accept multiple integers and integer strings and return multiple labels" do
+        described_class.new(:name => 'config0', :loglevel => [1,'2',4,'64'])[:loglevel].should == [:trace, :packets, :args, :config]
+      end
+      it "should accept an -or- integer and return (multiple) labels" do
+        described_class.new(:name => 'config0', :loglevel => 71)[:loglevel].should == [:trace, :packets, :args, :config]
+        described_class.new(:name => 'config0', :loglevel => "71")[:loglevel].should == [:trace, :packets, :args, :config]
+      end
+      it "should raise an error if unsupported integer is given" do
+        expect { described_class.new(:name => 'config0', :loglevel => ['1', 2, 3,'4','5']) }.to raise_error
+        expect { described_class.new(:name => 'config0', :loglevel => 1831) }.to raise_error
+        expect { described_class.new(:name => 'config0', :loglevel => '1831') }.to raise_error
+      end
+    end
+    describe "when using hexadecimals" do
+    end
+    describe "when using labels" do
+    end
+  end
 end

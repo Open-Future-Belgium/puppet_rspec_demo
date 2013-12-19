@@ -1,0 +1,27 @@
+-1 any -- enables all levels
+0 (0x0) All logging is off
+1 (0x1 trace) trace function calls
+2 (0x2 packets) debug packet handling
+4 (0x4 args) heavy trace debugging (function args)
+8 (0x8 conns) connection management
+16 (0x10 BER) print out packets sent and received
+32 (0x20 filter) search filter processing
+64 (0x40 config) configuration file processing
+128 (0x80 ACL) access control list processing
+256 (0x100 stats) stats log connections/operations/results
+512 (0x200 stats2) stats log entries sent
+1024 (0x400 shell) print communication with shell backends
+2048 (0x800 parse) entry parsing
+16384 (0x4000 sync) LDAPSync replication
+32768 (0x8000 none) only messages that get logged whatever log level is set
+
+* we need an algoritme to translate from an -or- ed value to labels
+  divide by 2 and doing something with this modulus,
+
+* internally the -or- ed value ??, and translating this to the label stuff ?
+  (this makes comparing atuff much easier, since it is only one value, but is
+   very hard to read)
+* check for some special cases :
+  - -1/any, 0 and 32768/all are  special cases.  If they are used, only one value is permitted
+
+

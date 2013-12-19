@@ -99,6 +99,8 @@ Puppet::Type.newtype(:ldapconfig) do
 
   newproperty(:tlsverifyclient) do
     # here we can use the newvalues for validation.
+    # for single values params, be ware that by default Symbols are used
+    # so everything is converted
     desc "Specifies what checks to perform on client certificates in an incoming TLS session, if any"
     defaultto 'never'
     newvalues('never','allow','try','demand','hard','true')

@@ -177,10 +177,16 @@ tag v0.0.2.7
 
    - string properties implementation - make the tests pass
 
-tag v0.0.2.8
+tag v0.0.2.8.0
 
   - string properties - part 2
-    - :loglevel property (more complicated case)
+  - we split this out in different sub steps, to show how to use TDD to make the problem solve much eaier by deviding it in simple steps
+    - :loglevel property - validating the strings, and returning a label
+
+tag v0.0.2.8.1
+
+  - passing the defined tests
+
 
 tag v0.0.2.9
 
