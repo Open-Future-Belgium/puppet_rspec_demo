@@ -16,7 +16,7 @@
 32768 (0x8000 none) only messages that get logged whatever log level is set
 
 * we need an algoritme to translate from an -or- ed value to labels
-  divide by 2 and doing something with this modulus,
+   and doing something with this modulus,
 
 * internally the -or- ed value ??, and translating this to the label stuff ?
   (this makes comparing atuff much easier, since it is only one value, but is

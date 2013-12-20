@@ -264,23 +264,29 @@ describe Puppet::Type.type(:ldapconfig) do
     it "should default to 'none'"do
       described_class.new(:name => 'config0')[:loglevel].should == [:none]
     end
-    describe "when using integers" do
-      it "should accept multiple integers and integer strings and return multiple labels" do
-        described_class.new(:name => 'config0', :loglevel => [1,'2',4,'64'])[:loglevel].should == [:trace, :packets, :args, :config]
+    describe "validation testing" do
+      it "should pass simple number validation" do
+        expect { described_class.new(:name => 'config0', :loglevel => ['128',128,'0x40',0x40])}.not_to raise_error
       end
-      it "should accept an -or- integer and return (multiple) labels" do
-        described_class.new(:name => 'config0', :loglevel => 71)[:loglevel].should == [:trace, :packets, :args, :config]
-        described_class.new(:name => 'config0', :loglevel => "71")[:loglevel].should == [:trace, :packets, :args, :config]
+      it "should fail simple number validation" do
+        # if tests are failing, stops on the first, resst is not executed
+        expect { described_class.new(:name => 'config0', :loglevel => 755555 )}.to raise_error
+        expect { described_class.new(:name => 'config0', :loglevel => '755555' )}.to raise_error
+        expect { described_class.new(:name => 'config0', :loglevel => '0xffffff' )}.to raise_error
+        expect { described_class.new(:name => 'config0', :loglevel => 0xfffffff )}.to raise_error
+        expect { described_class.new(:name => 'config0', :loglevel => ['128',128,'0x40',0x40,0xfffffff] )}.to raise_error
       end
-      it "should raise an error if unsupported integer is given" do
-        expect { described_class.new(:name => 'config0', :loglevel => ['1', 2, 3,'4','5']) }.to raise_error
-        expect { described_class.new(:name => 'config0', :loglevel => 1831) }.to raise_error
-        expect { described_class.new(:name => 'config0', :loglevel => '1831') }.to raise_error
+      it "should pass label validation" do
+        expect { described_class.new(:name => 'config0', :loglevel => ["trACe", "acl", "conns", "BER", "fiLTer", "filter"])}.not_to raise_error
+      end
+      it "should fail label validation" do
+        expect { described_class.new(:name => 'config0', :loglevel => ['ERROR', "trace", "conns", "BER", "filter", "filter"])}.to raise_error
       end
     end
-    describe "when using hexadecimals" do
-    end
-    describe "when using labels" do
+    describe "munging testing" do
+      it "should accept mixed array, return array integers and labels" do
+        described_class.new(:name => 'config0', :loglevel => [0x1,'0x2',4,'64',"conns", "BER"])[:loglevel].should == [1, 2, 4, 64, "conns", "ber"]
+      end
     end
   end
 end

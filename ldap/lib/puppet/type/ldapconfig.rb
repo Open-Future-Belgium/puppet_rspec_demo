@@ -1,6 +1,7 @@
 require 'puppet'
 require 'puppet/property/boolean'
 require 'puppet/property/ordered_list'
+require 'pry'
 
 Puppet::Type.newtype(:ldapconfig) do
 
@@ -75,11 +76,11 @@ Puppet::Type.newtype(:ldapconfig) do
       # we fail on the first fail
       case value
       when 'none', 'noanonymous', 'noplain', 'noactive', 'nodict', 'forwardsec', 'passcred'
-        # value is accepted
+        # passed
       when /^minssf=/,/^maxssf=/
         case value.split('=',2)[1]
         when "0", "1", "56", "112", "128"
-          # we have to validate the factor
+          # passed
         else
           raise ArgumentError, "property saslsecprops : #{value}= should have a value of [0|1|56|112|128]"
         end
@@ -106,9 +107,66 @@ Puppet::Type.newtype(:ldapconfig) do
     newvalues('never','allow','try','demand','hard','true')
   end
 
-  newproperty(:loglevel) do
+  newproperty(:loglevel, :array_matching => :all) do
     desc " Specify the level at which debugging statements and operation statistics should be syslogged (currently logged to the syslogd(8) LOG_LOCAL4 facility)."
+    # we default to 'none', so we force it here.  (openldap defaults to 0) - setting logging of has to be done using the 0 value
+    defaultto :none
+    # in ldap config, BER/ACL are uppercase, but since we will use the -or- ed value, we use case insensitive labels
+    loglevels = [:off, :trace, :packets, :args, :conns, :ber, :filter, :config, :acl, :stats, :stats2, :shell, :parse, :sync, :none]
+
+    validate do | value |
+      # we can recieve input in following format :
+      # As a string -> integer/hex or label
+      # As an integer
+      # As an hex
+      # DO NOT USE value.class -> seems to evaluate to Object instead of class type
+      # http://stackoverflow.com/questions/15346324/case-statement-evaluating-class-not-working-as-expected
+      case value
+      when Fixnum
+        if value < -1 or value > 0b1111111111111111
+          raise ArgumentError, "property loglevel must be between -1 and 65536/0xffff - #{value} given. See man slapd-config"
+        end
+      when String
+        case value
+        when /^0x[0-9a-fA-F]+$/
+         if value.to_i(16) < -1 or value.to_i(16) > 0b1111111111111111
+           raise ArgumentError, "property loglevel must be between -1 and 65536/0xffff - #{value} given. See man slapd-config"
+         end
+        when /^[0-9]+$/
+          if value.to_i < -1 or value.to_i > 0b1111111111111111
+            raise ArgumentError, "property loglevel must be between -1 and 65536/0xffff - #{value} given. See man slapd-config"
+          end
+        else
+          if !(loglevels.include?(value.downcase.to_sym))
+            raise ArgumentError, "loglevel attribute #{value} not supported. See man slapd-config"
+          end
+        end
+        # Still not clear when things are converted to symbols ...  But we validate the defaultto also
+      when Symbol
+        if !(loglevels.include?(value))
+          raise ArgumentError, "loglevel attribute #{value} not supported. See man slapd-config"
+        end
+      end
+    end
+
+    # we represent all in symbols if labels are given, else we translate everything in decimal intigers
+    munge do | value |
+      case value
+      when String
+        case value
+        when /^0x[0-9a-fA-F]+$/,/^[0-9]+$/
+          Integer(value)
+        else
+          # let the default munging happen
+          super value.downcase
+        end
+      else
+        value
+      end
+    end
+
   end
+
   newproperty(:authzregexp, :array_matching => :all) do
     desc "An array of authz-regexps"
   end

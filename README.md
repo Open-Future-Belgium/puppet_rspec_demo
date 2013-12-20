@@ -186,6 +186,12 @@ tag v0.0.2.8.0
 tag v0.0.2.8.1
 
   - passing the defined tests
+  - Added validation
+  - Added munging
+  - The rspec file needed a lot of rethinking
+    - reorganised everything, because initialy, i had to much processing in mind
+      - tests validation
+      - tests munging
 
 
 tag v0.0.2.9

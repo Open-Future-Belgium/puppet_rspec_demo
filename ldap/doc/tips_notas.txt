@@ -58,4 +58,6 @@ The rspec test:
       end
     end
 
+## test case when's --ORDER MATTERS
+/^0x[0-9a-fA-F]+$/ === value
 
