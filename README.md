@@ -181,7 +181,6 @@ tag v0.0.2.8.0
 
   - string properties - part 2
   - we split this out in different sub steps, to show how to use TDD to make the problem solve much eaier by deviding it in simple steps
-    - :loglevel property - validating the strings, and returning a label
 
 tag v0.0.2.8.1
 
@@ -193,10 +192,19 @@ tag v0.0.2.8.1
       - tests validation
       - tests munging
 
-
 tag v0.0.2.9
 
-  - :loglevel
+  - Dummy tag - the loglevel property was implemented much easier tham expectded.
+
+tag v0.0.2.10
+
+  - Ordered list properties ?
+    - writing extra tests for validation/munging if needed
+
+tag v0.0.2.11
+
+   - Ordered list properties ?
+      - wrote the code to pass the tests
 
 
 

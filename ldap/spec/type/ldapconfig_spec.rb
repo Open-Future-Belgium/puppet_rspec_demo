@@ -166,6 +166,32 @@ describe Puppet::Type.type(:ldapconfig) do
         described_class.attrclass(property).ancestors.should be_include(Puppet::Property::OrderedList)
       end
     end
+    describe "allows property" do
+      #none bind_v2, bind_anon_cred, bind_anon_dn, update_anon, proxy_authz_anon
+      it "should return none as default" do
+        described_class.new(:name => 'config0')[:allows].should == '[:none]'
+      end
+      it "should pass validation" do
+        descibed_class.new(:name => 'config0', :allows => ['bind_v2', 'bind_anon_cred', 'bind_anon_dn', 'update_anon', 'proxy_authz_anon']).should == ['bind_anon_cred','bind_anon_dn','bind_v2','proxy_authz_anon','update_anon']
+        descibed_class.new(:name => 'config0', :allows => ['bind_v2', 'bind_anon_cred', 'none']).should == [':none']
+      end
+      it "should not pass validation" do
+        expect { described_class.new(:name => 'config0', :allows => "faulty") }.to raise_error
+      end
+    end
+    describe "disallows property" do
+      # none, bind_anon, bind_simple, tls_2_anon, tls_authc
+      it "should return none as default" do
+        described_class.new(:name => 'config0')[:disallows].should == '[:none]'
+      end
+      it "should pass validation" do
+        descibed_class.new(:name => 'config0', :disallows => ['tls_2_anon','bind_anon', 'tls_authc','bind_simple']).should == ['bind_anon','bind_simple','tls_authc','tls_2_anon']
+        descibed_class.new(:name => 'config0', :allows => ['tls_2_anon', 'none']).should == [':none']
+      end
+      it "should not pass validation" do
+        expect { described_class.new(:name => 'config0', :disallows => "faulty") }.to raise_error
+      end
+    end
   end
 
   describe "testing of the unordered list properties" do
@@ -188,7 +214,7 @@ describe Puppet::Type.type(:ldapconfig) do
   describe "testing specific string properties" do
     describe "the :saslsecprops property" do
       # flags : none, noanonymous, noplain, noactive, nodict,forwardsec,  passcred , minssf=<factor>, maxssf=<factor>, maxbufsize=<size>
-      # factor : 0, 1, 56, 112, 128, MAX_INT 
+      # factor : 0, 1, 56, 112, 128, MAX_INT
       # size : 0<>65536
       it "should return the default value if no value is given" do
         # this check faild also, beacuse by default, only the first value is passed
