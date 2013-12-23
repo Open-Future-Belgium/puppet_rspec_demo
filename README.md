@@ -205,6 +205,18 @@ tag v0.0.2.11
 
    - Ordered list properties ?
       - wrote the code to pass the tests
+      - removed some tests, which seems not appropriate.
+      - But shoudl we have using an ordered list ?  because order does not matter, so next step 
+        we will be changing that to a List
+
+tag v0.0.2.12
+
+  - Move the Order list to normal list, first change the rspec file
+
+tag v0.0.2.13
+
+  - Adjut the code to pass the tests
+
 
 
 

@@ -1,0 +1,28 @@
+Which params should be added to the type ?
+
+* credentials to get access
+
+* base dn
+
+* force option
+
+* configuration base file
+
+* the configuration property
+
+* force_restart ( or via notify ??)
+
+* 
+
+# The following section contains the params for this resource
+
+:ldapuser => 'cn=admin,cn=config'
+:ldappasswd => required !!!
+:encryption => :none, :ssl, :tls
+:replace_config => false
+:config_source => empty
+
+
+
+
+

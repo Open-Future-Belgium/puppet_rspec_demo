@@ -166,14 +166,15 @@ describe Puppet::Type.type(:ldapconfig) do
         described_class.attrclass(property).ancestors.should be_include(Puppet::Property::OrderedList)
       end
     end
+
+    # The ordered_list returns an unordered list as , separated  string value
     describe "allows property" do
       #none bind_v2, bind_anon_cred, bind_anon_dn, update_anon, proxy_authz_anon
       it "should return none as default" do
-        described_class.new(:name => 'config0')[:allows].should == '[:none]'
+        described_class.new(:name => 'config0')[:allows].should == 'none'
       end
       it "should pass validation" do
-        descibed_class.new(:name => 'config0', :allows => ['bind_v2', 'bind_anon_cred', 'bind_anon_dn', 'update_anon', 'proxy_authz_anon']).should == ['bind_anon_cred','bind_anon_dn','bind_v2','proxy_authz_anon','update_anon']
-        descibed_class.new(:name => 'config0', :allows => ['bind_v2', 'bind_anon_cred', 'none']).should == [':none']
+        described_class.new(:name => 'config0', :allows => ['bind_v2', 'bind_anon_cred', 'bind_anon_dn', 'update_anon', 'proxy_authz_anon'])[:allows].should == "bind_v2,bind_anon_cred,bind_anon_dn,update_anon,proxy_authz_anon"
       end
       it "should not pass validation" do
         expect { described_class.new(:name => 'config0', :allows => "faulty") }.to raise_error
@@ -182,11 +183,10 @@ describe Puppet::Type.type(:ldapconfig) do
     describe "disallows property" do
       # none, bind_anon, bind_simple, tls_2_anon, tls_authc
       it "should return none as default" do
-        described_class.new(:name => 'config0')[:disallows].should == '[:none]'
+        described_class.new(:name => 'config0')[:disallows].should == 'none'
       end
       it "should pass validation" do
-        descibed_class.new(:name => 'config0', :disallows => ['tls_2_anon','bind_anon', 'tls_authc','bind_simple']).should == ['bind_anon','bind_simple','tls_authc','tls_2_anon']
-        descibed_class.new(:name => 'config0', :allows => ['tls_2_anon', 'none']).should == [':none']
+        described_class.new(:name => 'config0', :disallows => ['tls_2_anon','bind_anon', 'tls_authc','bind_simple'])[:disallows].should == "tls_2_anon,bind_anon,tls_authc,bind_simple"
       end
       it "should not pass validation" do
         expect { described_class.new(:name => 'config0', :disallows => "faulty") }.to raise_error

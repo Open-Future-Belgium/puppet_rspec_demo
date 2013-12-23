@@ -396,11 +396,46 @@ Puppet::Type.newtype(:ldapconfig) do
 
   newproperty(:allows, :parent => Puppet::Property::OrderedList) do
     desc "Specify  a set of features to allow (default none)."
-  end
-  newproperty(:disallows, :parent => Puppet::Property::OrderedList) do
-    desc "Specify  a set of features to disallow"
+    defaultto :none
+    newvalues(:none, :bind_v2, :bind_anon_cred, :bind_anon_dn, :update_anon, :proxy_authz_anon)
+
+    def membership
+      :allow_membership
+    end
   end
 
+  newproperty(:disallows, :parent => Puppet::Property::OrderedList) do
+    desc "Specify  a set of features to disallow"
+    defaultto :none
+    newvalues(:none, :bind_anon, :bind_simple, :tls_2_anon, :tls_authc)
+
+    def membership
+      :disallow_membership
+    end
+
+  end
+
+  # needed for the List -- parent modules ....
+  newparam(:membership) do
+    desc "Whether specified values should be considered the **complete list**
+          (`inclusive`) or the **minimum list** (`minimum`). Defaults to `inclusive`."
+    newvalues(:inclusive, :minimum)
+    defaultto :inclusive
+  end
+
+  newparam(:allow_membership) do
+    desc "Whether specified values for the allow attribute should be considered the **complete list**
+          (`inclusive`) or the **minimum list** (`minimum`). Defaults to `inclusive`."
+    newvalues(:inclusive, :minimum)
+    defaultto :inclusive
+  end
+
+  newparam(:disallow_membership) do
+    desc "Whether specified values for the disallow attribute should be considered the **complete list**
+          (`inclusive`) or the **minimum list** (`minimum`). Defaults to `inclusive`."
+    newvalues(:inclusive, :minimum)
+    defaultto :inclusive
+  end
   #
   # list_properties
   #

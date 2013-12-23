@@ -1,0 +1,20 @@
+When using the puppet Lists, a new property shoudl be added to your type, because the lists are deoending on that one :
+
+newproperty(:memberschip)
+
+the values that should be defined for this property are :
+
+-inclusive -> the complete list, so if other elements are assigned, they will be removed, and only the values 
+              provided by puppet wil be accepted
+
+- minimum -> The values porovide by puppet are 'added' to the alredy excistinng values.
+
+In our case, the membership will both be used for all lists, and set default to inclusive.
+
+!!!! Orderedlist -> all values will keep the order in which they are given.  This is not a sorted list !!!
+
+and the array of values  is translated to a comma separated string
+
+
+
+

@@ -1,0 +1,25 @@
+for those properties where the insync? method  is more than just string  compares, we
+need to override the method wot a custom one.
+
+
+We need to do this for the following parameters !!
+
+
+TODO :  lookup how insync? can be te tested with rspec !!!
+
+    def insync?( is )
+      if ( is == :absent && ( @should == :absent || @should.empty? ) ) || ( ( is == :absent || is.empty? ) && @should == :absent )
+        return true
+      end
+
+      if is.is_a? Array
+        sortedis = is.sort
+      else
+        sortedis = [ is ]
+      end
+
+      sortedshould = @should.sort
+
+      return sortedis == sortedshould
+    end
+
