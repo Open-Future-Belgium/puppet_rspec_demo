@@ -56,8 +56,8 @@ describe Puppet::Type.type(:ldapconfig) do
   path_properties =   [ :logfile, :argsfile, :pidfile, :tlscertificatekeyfile, :tlscertificatefile,
                         :configdir, :configfile ]
   bool_properties =   [ :gentlehup, :readonly, :reverselookup ]
-  olist_properties  = [ :allows, :disallows ]
-  list_properties   = []
+  list_properties  = [ :allows, :disallows ]
+  olist_properties   = []
   key_properties    = []
 
 
@@ -166,8 +166,15 @@ describe Puppet::Type.type(:ldapconfig) do
         described_class.attrclass(property).ancestors.should be_include(Puppet::Property::OrderedList)
       end
     end
+  end
 
-    # The ordered_list returns an unordered list as , separated  string value
+  describe "testing of the unordered list properties" do
+    list_properties.each do | property |
+      it "should have a list #{property}" do
+        described_class.attrclass(property).ancestors.should be_include(Puppet::Property::List)
+      end
+    end
+
     describe "allows property" do
       #none bind_v2, bind_anon_cred, bind_anon_dn, update_anon, proxy_authz_anon
       it "should return none as default" do
@@ -190,14 +197,6 @@ describe Puppet::Type.type(:ldapconfig) do
       end
       it "should not pass validation" do
         expect { described_class.new(:name => 'config0', :disallows => "faulty") }.to raise_error
-      end
-    end
-  end
-
-  describe "testing of the unordered list properties" do
-    list_properties.each do | property |
-      it "should have a list #{property}" do
-        described_class.attrclass(property).ancestors.should be_include(Puppet::Property::List)
       end
     end
   end
