@@ -168,7 +168,7 @@ describe Puppet::Type.type(:ldapconfig) do
     end
   end
 
-  describe "testing of the unordered list properties" do
+  describe "testing of the list properties" do
     list_properties.each do | property |
       it "should have a list #{property}" do
         described_class.attrclass(property).ancestors.should be_include(Puppet::Property::List)
@@ -181,7 +181,7 @@ describe Puppet::Type.type(:ldapconfig) do
         described_class.new(:name => 'config0')[:allows].should == 'none'
       end
       it "should pass validation" do
-        described_class.new(:name => 'config0', :allows => ['bind_v2', 'bind_anon_cred', 'bind_anon_dn', 'update_anon', 'proxy_authz_anon'])[:allows].should == "bind_v2,bind_anon_cred,bind_anon_dn,update_anon,proxy_authz_anon"
+        described_class.new(:name => 'config0', :allows => ['bind_v2', 'bind_anon_cred', 'bind_anon_dn', 'update_anon', 'proxy_authz_anon'])[:allows].should == "bind_anon_cred,bind_anon_dn,bind_v2,proxy_authz_anon,update_anon"
       end
       it "should not pass validation" do
         expect { described_class.new(:name => 'config0', :allows => "faulty") }.to raise_error
@@ -193,7 +193,7 @@ describe Puppet::Type.type(:ldapconfig) do
         described_class.new(:name => 'config0')[:disallows].should == 'none'
       end
       it "should pass validation" do
-        described_class.new(:name => 'config0', :disallows => ['tls_2_anon','bind_anon', 'tls_authc','bind_simple'])[:disallows].should == "tls_2_anon,bind_anon,tls_authc,bind_simple"
+        described_class.new(:name => 'config0', :disallows => ['tls_2_anon','bind_anon', 'tls_authc','bind_simple'])[:disallows].should == "bind_anon,bind_simple,tls_2_anon,tls_authc"
       end
       it "should not pass validation" do
         expect { described_class.new(:name => 'config0', :disallows => "faulty") }.to raise_error

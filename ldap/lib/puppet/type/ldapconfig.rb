@@ -394,7 +394,7 @@ Puppet::Type.newtype(:ldapconfig) do
   # olist_properties
   #
 
-  newproperty(:allows, :parent => Puppet::Property::OrderedList) do
+  newproperty(:allows, :parent => Puppet::Property::List) do
     desc "Specify  a set of features to allow (default none)."
     defaultto :none
     newvalues(:none, :bind_v2, :bind_anon_cred, :bind_anon_dn, :update_anon, :proxy_authz_anon)
@@ -404,7 +404,7 @@ Puppet::Type.newtype(:ldapconfig) do
     end
   end
 
-  newproperty(:disallows, :parent => Puppet::Property::OrderedList) do
+  newproperty(:disallows, :parent => Puppet::Property::List) do
     desc "Specify  a set of features to disallow"
     defaultto :none
     newvalues(:none, :bind_anon, :bind_simple, :tls_2_anon, :tls_authc)

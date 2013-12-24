@@ -1,10 +1,13 @@
 Which params should be added to the type ?
 
-* credentials to get access
+* credentials to get access (config user and password)a
+  --. could be attributes or crednetial files -- last one has higher precedence, and shoudl generate an automatic dependency
 
-* base dn
 
-* force option
+
+* base dn defaulkts to dn=config
+
+* force option 
 
 * configuration base file
 
@@ -12,7 +15,13 @@ Which params should be added to the type ?
 
 * force_restart ( or via notify ??)
 
-* 
+* credential file => should be provide by a puppet file resource, we will add an automatic dependency for it ??
+(only if defined)
+
+* offline --> perform the actions on an offline ldap
+
+* forcestop.
+  Shutdoen the ldap server, and perform the actions on an offline server (only id changes are required).
 
 # The following section contains the params for this resource
 
@@ -21,6 +30,10 @@ Which params should be added to the type ?
 :encryption => :none, :ssl, :tls
 :replace_config => false
 :config_source => empty
+
+
+
+
 
 
 

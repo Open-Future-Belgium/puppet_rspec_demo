@@ -215,7 +215,7 @@ tag v0.0.2.12
 
 tag v0.0.2.13
 
-  - Adjut the code to pass the tests
+  - Adjust the code to pass the tests
 
 
 
