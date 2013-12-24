@@ -49,16 +49,18 @@ describe Puppet::Type.type(:ldapconfig) do
   # see also /usr/share/ruby/vendor_ruby/puppet/property.rb
 
   string_properties = [ :attributeoptions, :saslsecprops, :tlsverifyclient, :loglevel, :authzregexp ]
-  int_properties  =   [ :concurrency, :connmaxpending,
+  int_properties    = [ :concurrency, :connmaxpending,
                         :connmaxpendingauth, :idletimeout, :indexsubstrifmaxlen, :indexsubstrifminlen,
                         :indexsubstranylen, :indexsubstranystep, :indexintlen, :localssf, :sockbufmaxincoming,
                         :sockbufmaxincomingauth, :threads, :toolthreads, :writetimeout ]
-  path_properties =   [ :logfile, :argsfile, :pidfile, :tlscertificatekeyfile, :tlscertificatefile,
+  path_properties   = [ :logfile, :argsfile, :pidfile, :tlscertificatekeyfile, :tlscertificatefile,
                         :configdir, :configfile ]
-  bool_properties =   [ :gentlehup, :readonly, :reverselookup ]
-  list_properties  = [ :allows, :disallows ]
-  olist_properties   = []
+  bool_properties   = [ :gentlehup, :readonly, :reverselookup ]
+  list_properties   = [ :allows, :disallows ]
+  olist_properties  = []
   key_properties    = []
+  params            = [ :credential_file, :force_install, :force_restart, :offline,
+                        :ldapuser, :ldappassword, :base_dn, :encryption ]
 
 
   # this checks are for all defined properties.  The forst block  applies to all properties,
@@ -312,6 +314,20 @@ describe Puppet::Type.type(:ldapconfig) do
       it "should accept mixed array, return array integers and labels" do
         described_class.new(:name => 'config0', :loglevel => [0x1,'0x2',4,'64',"conns", "BER"])[:loglevel].should == [1, 2, 4, 64, "conns", "ber"]
       end
+    end
+  end
+
+  ## The parameter are tested here
+  describe "parameters blok" do
+    describe "testing all desired parameter are declared and documented" do
+       params.each do | parameter |
+          it "should have a #{parameter} parameter" do
+            described_class.attrclass(parameter).ancestors.should be_include(Puppet::Parameter)
+          end
+          it "should have documentation for its #{parameter} parameter" do
+            described_class.attrclass(parameter).doc.strip.should_not == ""
+          end
+       end
     end
   end
 end

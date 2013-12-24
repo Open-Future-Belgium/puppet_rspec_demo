@@ -217,10 +217,11 @@ tag v0.0.2.13
 
   - Adjust the code to pass the tests
 
+tag v0.0.2.14
 
+  - Added the parameters we think we need in the rspec file
 
+tag v0.0.2.15
 
-  - olist-properties
-    - check for allowed values
-    - special check in this case are needed
+  - And added the minimal code to make the tests pass
 
