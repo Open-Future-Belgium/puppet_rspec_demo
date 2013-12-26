@@ -329,5 +329,26 @@ describe Puppet::Type.type(:ldapconfig) do
           end
        end
     end
+    describe "validation tests for parameters" do
+      it "should generate an error if credential_file is not absolute path" do
+        expect { described_class.new(:name => 'config0', :credential_file => "not_a_path")}.to raise_error
+      end
+      it "should generate an error if credential_file, ldapuser, ldappassword and base_dn is empty" do
+        expect { described_class.new(:name => 'config0', :credential_file => 'undef', :ldapuser => 'undef', :ldappassword => 'undef', :base_dn => 'undef')}.to raise_error
+      end
+    end
+    describe "default values for parameters" do
+      it "should default to \'false\' for parameter force_install" do
+        described_class.attrclass(:force_install).ancestors.should be_include(Puppet::Parameter::boolean)
+        described_class.attrclass.new(:name => 'config0')[:force_install].should == false
+      end
+      it "should default to \'false\' for parameter force_restart" do
+        described_class.attrclass(:force_restart).ancestors.should be_include(Puppet::Parameter::boolean)
+        described_class.attrclass.new(:name => 'config0')[:force_restart].should == false
+      end
+      it "should default to \'none\' for parameter encription" do
+        described_class.attrclass.new(:name => 'config0')[:encryption].should == :none
+      end
+    end
   end
 end

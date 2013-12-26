@@ -489,7 +489,7 @@ Puppet::Type.newtype(:ldapconfig) do
 
   newparam( :base_dn ) do
     desc "The base_dn used to connect to an openldap server.  If a credentials file is given, and is accessible,
-              then that base_dn will be used"
+           then that base_dn will be used"
   end
 
   newparam( :encryption ) do

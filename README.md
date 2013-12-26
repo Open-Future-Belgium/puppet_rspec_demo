@@ -228,9 +228,11 @@ tag v0.0.2.15
 tag v0.0.2.16
 
   - Add the validation and defaults to the previous added parameters in the rspec
+    -problem here, we added a test which will need adjustments to all the other tests, because they will then fail.  But how do we solve this the best way ?
 
 tag v0.0.2.17
 
   - And adjust the type definition code to pass the test
+  - Added new type thing, validating against other attributes from the type
 
 
