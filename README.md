@@ -225,3 +225,12 @@ tag v0.0.2.15
 
   - And added the minimal code to make the tests pass
 
+tag v0.0.2.16
+
+  - Add the validation and defaults to the previous added parameters in the rspec
+
+tag v0.0.2.17
+
+  - And adjust the type definition code to pass the test
+
+

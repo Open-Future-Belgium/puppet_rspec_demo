@@ -454,6 +454,47 @@ Puppet::Type.newtype(:ldapconfig) do
     defaultto 'config0'
   end
 
+  newparam( :credential_file ) do
+    desc "The file where the login credentials are stored.  This file should be available on the
+          ldapserver.  This file should be secured properly.  It should have the following entries
+          ldapuser=, ldappassword=, base_dn= and wil override the same params given  in theis type"
+  end
+
+  newparam( :force_install ) do
+    desc "If set to true, the current openldap configuration directory will be overwritten with the
+          archive (zip/tar/tgz,bzip) given in the \'config_archive\' attribute.  This has to be considered
+          as a starting point for a fresch openldap configuration.  Id attributes are also  set, these will
+          then applied to the fresch installed openldap configuration"
+  end
+
+  newparam( :force_restart ) do
+    desc "The openldap server will be restarted after all actiosn are performed."
+  end
+
+  newparam( :offline ) do
+    desc "Perform all actions on an offline openldap server.  If the server is running, it will be stopped,
+          All actions will be  performed, and it will be started again.  If the server was already offline,
+          it will not be restarted.  Openldap service shoudl be managed with its oen \'Service\' Resource"
+  end
+
+  newparam( :ldapuser ) do
+    desc "The ldap user to connect to the ldap, with admin rights.  If a credentials file is given, and is accessible,
+              then that ldapuser will be used"
+  end
+
+  newparam( :ldappassword ) do
+    desc "The password to connect to de openldap server.  If a credentials file is given, and is accessible,
+          then that password will be used"
+  end
+
+  newparam( :base_dn ) do
+    desc "The base_dn used to connect to an openldap server.  If a credentials file is given, and is accessible,
+              then that base_dn will be used"
+  end
+
+  newparam( :encryption ) do
+    desc "The encyption to be used for the connection to the ldapserver"
+  end
 
   #
   # Global functions used in the Type definition
